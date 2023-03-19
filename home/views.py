@@ -5,5 +5,4 @@ from TaskManager.databases.tasks import Tasks
 
 # Create your views here.
 def home(request):
-    
-    return HttpResponse("this is my ome page")
+    return render(request,'html/home.html')
