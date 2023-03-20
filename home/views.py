@@ -6,13 +6,13 @@ from TaskManager.databases.tasks import Tasks
 # views
 
 def home(request):
-    return render(request,'html/home.html')
+    return render(request,'home.html')
 
 def projects(request):
-    return render(request,'html/projects.html')
+    return render(request,'projects.html')
 
 def task(request):
-    return render(request,'html/task.html')
+    return render(request,'task.html')
 
 def user(request):
-    return render(request,'html/user.html')
+    return render(request,'user.html')
