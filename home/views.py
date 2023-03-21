@@ -10,7 +10,7 @@ def index(request):
     return render(request,template_name='index.html')
 
 def home(request):
-    return render(request,template_name='templates/home.html')
+    return render(request,template_name='template/home.html')
 
 def projects(request):
     return render(request,'projects.html')

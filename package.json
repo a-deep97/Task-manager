@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@babel/core": "^7.21.3",
     "webpack-cli": "^5.0.1"
   }
 }
