@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig'
+    'TaskManagerApp.apps.TaskmanagerappConfig'
 ]
 
 MIDDLEWARE = [
@@ -56,8 +56,9 @@ ROOT_URLCONF = 'TaskManager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'task_manager_ui/public/template'),
-                 os.path.join(BASE_DIR,'task_manager_ui/public')
+        'DIRS': [os.path.join(BASE_DIR,'task_manager_ui/build/template'),
+                 os.path.join(BASE_DIR,'task_manager_ui/public/template'),
+                 os.path.join(BASE_DIR,'task_manager_ui/public'),
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,8 +128,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"task_manager_ui/public/static"),
-    os.path.join(BASE_DIR,"task_manager_ui/src")
+    os.path.join(BASE_DIR,"task_manager_ui/build/static"),
+    os.path.join(BASE_DIR,"task_manager_ui/src/static"),
+    os.path.join(BASE_DIR,"task_manager_ui/public"),
 ]
 
 # Default primary key field type
