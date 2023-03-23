@@ -1,8 +1,9 @@
+import './../css/variables.css';
+import '../css/common.css';
 import { Component } from "react";
 import Navbar from "./components/navbar";
 import MainContainer from './components/main-container';
 import Footer from './components/footer';
-import '../css/common.css';
 
 class Projects extends Component{
     render(){

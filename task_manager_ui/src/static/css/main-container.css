@@ -1,5 +1,5 @@
 .main-container{
-    background-color: yellow;
+    background-color: var(--code1_color2);
     display: inherit;
     align-items: center;
     width: 100%;

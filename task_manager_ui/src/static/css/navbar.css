@@ -1,5 +1,5 @@
 .top-navbar{
-    background-color: yellowgreen;
+    background-color: var(--code1_color4);
     display: inherit;
     align-items: center;
     width: 100%;

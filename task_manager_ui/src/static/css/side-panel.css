@@ -1,8 +1,8 @@
 .side-panel{
+    background-color: var(--code1_color4);
     display: inherit;
     flex-direction: column;
     align-items: flex-start;
-    background-color: tomato;
     padding: 5px;
     height: 100%;
     width: 20%;
