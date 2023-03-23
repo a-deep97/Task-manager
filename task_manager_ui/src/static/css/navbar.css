@@ -1,5 +1,6 @@
 .top-navbar{
     background-color: var(--code1_color4);
+    border-bottom: 1px solid var(--code1_color3);
     border-radius: 10px;
     display: inherit;
     align-items: center;
