@@ -1,12 +1,76 @@
 .side-panel{
     background-color: var(--code1_color7);
     border-right: 1px solid var(--code1_color3);
+    overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 5px;
     display: inherit;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     padding: 5px;
     height: 100%;
     width: 20%;
     height: 100%;
+}
+
+#side-panel-heading{
+    
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:x-large;
+    padding: 10px;
+    align-items: center;
+}
+
+#create-task-btn{
+    border: none;
+    background-color: var(--code1_color6);
+    box-shadow: 1px 1px 1px 1px var(--code1_color3);
+    border-radius: 5px;
+    align-items: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    width: 90%;
+    height: 35px;
+}
+#create-task-btn:hover{
+    background-color: var(--code1_color5);
+}
+
+#side-panel-contents{
+    display: inherit;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#side-panel-link-container{
+    display: inherit;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.side-panel-links{
+    display: inherit;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 20px;
+    font-size: medium;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+.side-panel-links:hover{
+    background-color: #E1D9D1;
 }
