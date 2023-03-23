@@ -10,7 +10,9 @@ class ContentView extends Component{
     render(){
         return(
             <div className="content-view">
-                <h1>This is main view</h1>
+                <div id='content-heading'>
+                    <h2>This is heading section</h2>
+                </div>
             </div>
         );
     };
