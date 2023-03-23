@@ -1,8 +1,8 @@
 .main-container{
-    background-color: var(--code1_color2);
+    background-color: var(--code1_color5);
     display: inherit;
     align-items: center;
     width: 100%;
-    height: 80vh;
+    height: 85vh;
     padding: 5px;
 }

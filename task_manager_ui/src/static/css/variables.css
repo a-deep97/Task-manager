@@ -1,7 +1,8 @@
 :root{
-    --code1_color1: #579BB1;
-    --code1_color2: #E1D7C6;
-    --code1_color3: #ECE8DD;
-    --code1_color4: #F8F4EA;
-    --code1_color5: white;
+    --code1_color1: black;
+    --code1_color2: #5F6D7A;
+    --code1_color3: #708090;
+    --code1_color4: #D3D3D3;
+    --code1_color5: #E5E5E5;
+    --code1_color6: white;
 }

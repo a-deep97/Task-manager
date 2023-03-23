@@ -5,7 +5,9 @@ class Navbar extends Component{
     render(){
         return(
             <div className="top-navbar">
-                <h2>this is a navbar</h2>
+                <div className="navbar-links">
+                    <div id="title">Task Manager</div>
+                </div>      
             </div>
         );
     }

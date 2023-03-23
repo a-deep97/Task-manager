@@ -1,9 +1,24 @@
 .top-navbar{
     background-color: var(--code1_color4);
+    border-radius: 10px;
     display: inherit;
     align-items: center;
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     padding-left: 5px;
     padding-right: 5px;
+}
+.navbar-links{
+    display:inherit;
+    margin-left: 10px;
+    align-items: center;
+}
+.navbar-links a{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#title{
+    font-family: cursive;
+    font-size: xx-large;
+    font-weight: bold;
 }
