@@ -1,0 +1,9 @@
+.top-navbar{
+    background-color: yellowgreen;
+    display: inherit;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    padding-left: 5px;
+    padding-right: 5px;
+}

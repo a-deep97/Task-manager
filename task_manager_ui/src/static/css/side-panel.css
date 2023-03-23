@@ -1,0 +1,10 @@
+.side-panel{
+    display: inherit;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: tomato;
+    padding: 5px;
+    height: 100%;
+    width: 20%;
+    height: 95%;
+}

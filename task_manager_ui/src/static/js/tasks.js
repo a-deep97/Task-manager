@@ -1,10 +1,16 @@
+import { Component } from "react";
+import Navbar from "./components/navbar";
+import '../css/common.css';
 
-
-
-function Tasks(){
-    return (
-        <h1>This is projects page</h1>
-    );
-}
+class Tasks extends Component{
+    render(){
+        return(
+            <div className="tasks">
+                <Navbar />
+                <h1>This is tasks page</h1>
+            </div>
+        );
+    }
+};
 
 export default Tasks

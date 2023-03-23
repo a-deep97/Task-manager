@@ -1,10 +1,16 @@
+import { Component } from "react";
+import Navbar from "./components/navbar";
+import '../css/common.css';
 
-
-
-function User(){
-    return (
-        <h1>This is projects page</h1>
-    );
-}
+class User extends Component{
+    render(){
+        return(
+            <div className="user">
+                <Navbar />
+                <h1>This is user page</h1>
+            </div>
+        );
+    }
+};
 
 export default User
