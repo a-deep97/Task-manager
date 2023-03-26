@@ -1,5 +1,5 @@
 import { Component } from "react";
-import '../../css/projects-headers.css'
+import '../../../css/projects-headers.css'
 
 /**
  * This component represents headers for projects content

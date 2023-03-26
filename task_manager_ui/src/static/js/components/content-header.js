@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../../css/content-view.css'
-import ProjectsHeader from "./projects-headers";
+import ProjectsHeader from "./projects/projects-headers";
 
 /**
  * Component representing columns headers in contents

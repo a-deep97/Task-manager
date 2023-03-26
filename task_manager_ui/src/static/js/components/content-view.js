@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import '../../css/content-view.css'
 import ContentHeader from './content-header';
-import ProjectsList from './projects-list';
+import ProjectsList from './projects/projects-list';
 
 /*
     This component represents view for the project/task data
