@@ -1,5 +1,6 @@
 import { Component } from "react";
-
+import '../../../css/projects/projects-list.css';
+import ProjectRow from './project-row';
 /**
  * This component represents container to list projects
  */
@@ -7,7 +8,7 @@ class ProjectsList extends Component{
     render(){
         return(
             <div id="projects-list">
-                <div className="projects-list"></div>
+                <ProjectRow />
             </div>
         );
     };
