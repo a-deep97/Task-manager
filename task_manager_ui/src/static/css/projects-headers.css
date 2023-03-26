@@ -1,0 +1,19 @@
+#projects-headers{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    width: inherit;
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
+
+}
+
+.projects-header{
+    display: inherit;
+    justify-content: inherit;
+    align-items: center;
+    width: inherit;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+

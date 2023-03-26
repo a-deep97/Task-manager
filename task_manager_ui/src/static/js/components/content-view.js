@@ -1,6 +1,9 @@
 
 import { Component } from 'react';
 import '../../css/content-view.css'
+import ContentHeader from './content-header';
+import ProjectsList from './projects-list';
+
 /*
     This component represents view for the project/task data
     inside main-container  , apart from side panel
@@ -9,10 +12,9 @@ import '../../css/content-view.css'
 class ContentView extends Component{
     render(){
         return(
-            <div className="content-view">
-                <div id='content-heading'>
-                    <h2>This is heading section</h2>
-                </div>
+            <div id="content-view">
+                <ContentHeader />
+                <ProjectsList />
             </div>
         );
     };
