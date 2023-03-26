@@ -1,0 +1,36 @@
+#project-table{
+    justify-content: stretch;
+    width: 100%;
+    padding: 10px;
+}
+#project-table tr{
+    text-align: left;
+    padding: 5px;
+    text-overflow: clip;
+}
+#project-table-row{
+    margin-bottom: 10px;
+    background-color: var(--code1_color4);
+    border-radius: 5px;
+}
+.col-project-id{
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.col-title{
+    width: 200px;
+}
+.col-owner{
+    width: 120px;
+}
+.col-target{
+    width: 120px;
+}
+.col-progress{
+    width: 100px;
+}
+.col-status{
+    width: 100px;
+}

@@ -1,8 +1,7 @@
 
 import { Component } from 'react';
-import '../../css/content-view.css'
-import ContentHeader from './content-header';
-import ProjectsList from './projects/projects-list';
+import '../../../css/content-view.css';
+import ProjectsListView from './projects-list-view';
 
 /*
     This component represents view for the project/task data
@@ -13,8 +12,7 @@ class ContentView extends Component{
     render(){
         return(
             <div id="content-view">
-                <ContentHeader />
-                <ProjectsList />
+                <ProjectsListView/>
             </div>
         );
     };
