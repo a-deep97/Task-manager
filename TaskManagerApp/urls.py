@@ -3,7 +3,10 @@ from django.urls import path
 from TaskManagerApp import views
 from django.views.generic import TemplateView
 
+
 urlpatterns=[
     path('',views.projects,name='projects'),
-    path('projects',views.projects,name='projects'),
+    path('projects',views.getProjectList),
+    path('tasks',views.getTaskList),
+    path('create_task',views.createTask),
 ]

@@ -2,7 +2,7 @@
 from enum import Enum
 from typing import Any
 from .model_base import ModelBase
-from TaskManager.constants.status import Status
+from TaskManagerApp.constants.status import Status
     
 TABLE="tasks"
 
@@ -34,8 +34,10 @@ class Tasks(ModelBase):
         """
         self.insert(query=query,params=params)
     
-    def get_all_tasks(self):
+    def get_all_tasks(self,user:str=None):
         query=f"""
             SELECT * FROM {self.table}
         """
+        if user:
+            query=query + f"WHERE emp_id='{user}'"
         return self.read_all(query,None)

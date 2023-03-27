@@ -3,7 +3,7 @@ import sys
 
 from typing import Any
 from .model_base import ModelBase
-from TaskManager.constants.status import Status
+from TaskManagerApp.constants.status import Status
 
 
 TABLE="project"
