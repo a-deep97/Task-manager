@@ -2,6 +2,9 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from TaskManagerApp.lib.project_util import ProjectUtil
+
+from TaskManagerApp.lib.task_util import TaskUtil
 from .databases.project import Project
 from .databases.tasks import Tasks
 
@@ -22,7 +25,12 @@ def getTaskList(request):
 
 @api_view(['GET','POST'])
 def createTask(request):
-    task=Tasks()
-    task.initiate("dummy task","1","1234")
-    task.create_task()
-    return Response(str(task))
+    data={}
+    res=TaskUtil.create_task(**data)
+    return Response(res)
+
+@api_view(['GET','POST'])
+def createProject(request):
+    data={}
+    res=ProjectUtil.create_project(**data)
+    return Response(res)

@@ -2,7 +2,7 @@
 from enum import Enum
 from typing import Any
 from .model_base import ModelBase
-from TaskManagerApp.constants.status import Status
+from TaskManagerApp.lib.constants.status import Status
     
 TABLE="tasks"
 
