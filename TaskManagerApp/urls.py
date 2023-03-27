@@ -9,5 +9,6 @@ urlpatterns=[
     path('projects',views.getProjectList),
     path('tasks',views.getTaskList),
     path('create_task',views.createTask),
-    path('create_project',views.createProject)
+    path('create_project',views.createProject),
+    path('new_user',views.newUser)
 ]

@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from TaskManagerApp.lib.project_util import ProjectUtil
 
 from TaskManagerApp.lib.task_util import TaskUtil
+from TaskManagerApp.lib.user_util import UserUtil
 from .databases.project import Project
 from .databases.tasks import Tasks
 
@@ -33,4 +34,16 @@ def createTask(request):
 def createProject(request):
     data={}
     res=ProjectUtil.create_project(**data)
+    return Response(res)
+
+@api_view(['GET'])
+def getUserTasks(request):
+    name="aman"
+    res=UserUtil().get_user_tasks(name=name)
+    return Response(res)
+
+@api_view(['GET','POST'])
+def newUser(request):
+    data={"emp_id":"1234","name":"aman"}
+    res=UserUtil.add_user(**data)
     return Response(res)
