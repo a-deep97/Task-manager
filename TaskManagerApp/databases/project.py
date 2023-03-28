@@ -1,7 +1,7 @@
 from enum import Enum
 import sys
 
-from typing import Any
+from typing import Any, Dict
 from .model_base import ModelBase
 from TaskManagerApp.lib.constants.status import Status
 
@@ -41,6 +41,16 @@ class Project(ModelBase):
         """
         return self.read_all(query,None)
 
-    def update_project(self):
-        return
-    
+    def update_project(self,columns:Dict[str,Any],clauses:Dict[str,Any]):
+        query=f"""
+            UPDATE {self.table}
+            SET
+        """
+        for key , val in columns.items():
+            query = query + f" {key} = '{val}' "
+        
+        if clauses:
+            query+= f"WHERE \n"
+            for key , val in clauses:
+                query =query + f" {key}= '{val}'"
+        self.update(query,None)

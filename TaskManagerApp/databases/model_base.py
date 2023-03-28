@@ -1,4 +1,4 @@
-from typing import List
+from typing import Any, Dict, List
 from django.db import connection
 
 class ModelBase(object):
@@ -27,9 +27,9 @@ class ModelBase(object):
         with connection.cursor() as cursor:
             cursor.execute(query,params)
     
-    def update(self):
-        # TODO
-        return None
+    def update(self,query:str,params:List):
+        with connection.cursor() as cursor:
+            cursor.execute(query,params)
     
     def delete(self):
         # TODO

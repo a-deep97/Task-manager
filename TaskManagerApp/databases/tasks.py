@@ -1,6 +1,6 @@
 
 from enum import Enum
-from typing import Any
+from typing import Any, Dict
 from .model_base import ModelBase
 from TaskManagerApp.lib.constants.status import Status
     
@@ -41,3 +41,17 @@ class Tasks(ModelBase):
         if user:
             query=query + f"WHERE emp_id='{user}'"
         return self.read_all(query,None)
+    
+    def update_task(self,columns:Dict[str,Any],clauses:Dict[str,Any]):
+        query=f"""
+            UPDATE {self.table}
+            SET
+        """
+        for key , val in columns.items():
+            query = query + f" {key} = '{val}' "
+        
+        if clauses:
+            query+= f"WHERE \n"
+            for key , val in clauses:
+                query =query + f" {key}= '{val}'"
+        self.update(query,None)
