@@ -1,7 +1,7 @@
 
-from TaskManagerApp.databases.tasks import Tasks
+from TaskManagerApp.db_utils.tasks import Tasks
 from TaskManagerApp.lib.constants.status import Status
-from TaskManagerApp.databases.users import User
+from TaskManagerApp.db_utils.users import User
 
 class UserUtil:
 

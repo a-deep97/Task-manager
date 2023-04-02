@@ -1,5 +1,5 @@
 
-from TaskManagerApp.databases.tasks import Tasks
+from TaskManagerApp.db_utils.tasks import Tasks
 from TaskManagerApp.lib.constants.status import Status
 
 

@@ -6,8 +6,8 @@ from TaskManagerApp.lib.project_util import ProjectUtil
 
 from TaskManagerApp.lib.task_util import TaskUtil
 from TaskManagerApp.lib.user_util import UserUtil
-from .databases.project import Project
-from .databases.tasks import Tasks
+from .db_utils.project import Project
+from .db_utils.tasks import Tasks
 
 def projects(request):
     return render(request,template_name='index.html')
@@ -15,7 +15,7 @@ def projects(request):
 @api_view(['GET'])
 def getProjectList(request):
 
-    data=Project().get_all_projects()
+    data=ProjectUtil.get_projects()
     
     return Response(data)
 
