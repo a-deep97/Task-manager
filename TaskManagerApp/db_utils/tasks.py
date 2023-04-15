@@ -16,7 +16,7 @@ class Tasks(ModelBase):
                 proj_id:str,
                 emp_id:str="",
                 description:str="",
-                status:Status=Status.Unknown,
+                status:Status=Status.Unknown.name,
                 target:Any=""):
         self.title=title
         self.proj_id=proj_id

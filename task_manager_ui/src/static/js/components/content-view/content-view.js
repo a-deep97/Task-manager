@@ -2,6 +2,7 @@
 import { Component } from 'react';
 import '../../../css/content-view.css';
 import ProjectsListView from './projects-list-view';
+import TaskListView from './tasks-list-view'; 
 
 /*
     This component represents view for the project/task data
@@ -15,7 +16,9 @@ class ContentView extends Component{
     render(){
         return(
             <div id="content-view">
-                <ProjectsListView projectlist={this.props.projectlist}/>
+                {this.props.listtype=="project"
+                    ?<ProjectsListView projectlist={this.props.datalist}/>
+                    :<TaskListView tasklist={this.props.datalist} />}
             </div>
         );
     };

@@ -1,49 +1,50 @@
 import { Component } from "react";
 import '../../../css/list-view.css';
-import ProjectRow from './project-row';
+import TaskRow from './task-row';
 
 /**
  * this component represent list view od projects
  */
-class ProjectsListView extends Component{
+class TaskListView extends Component{
     constructor(props){
         super(props)
     }
 
-    list_project(){
+    list_task(){
         /**
          * function to define project row components
          */
-        let project_rows=[]
-        if (this.props.projectlist == null){
+        let task_rows=[]
+        if (this.props.tasklist == null){
             return null
         }
-        for (let i=0;i<this.props.projectlist.length;i++){
-            project_rows.push(<ProjectRow project={this.props.projectlist[i]} />)
+        for (let i=0;i<this.props.tasklist.length;i++){
+            task_rows.push(<TaskRow task={this.props.tasklist[i]} />)
         }
-        return project_rows
+        return task_rows
     }
 
     render(){
-        const project_rows=this.list_project()
+        const task_rows=this.list_task()
         return(
             <table id="table" className="table">
                 <thead>
                     <tr id="table-row">
-                        <th className="col-id">Project ID</th>
+                        <th className="col-id">Task ID</th>
                         <th className="col-title">Title</th>
+                        <th className="col-description">Owner</th>
                         <th className="col-owner">Description</th>
-                        <th className="col-target">Status</th>
-                        <th className="col-progress">Owner</th>
-                        <th className="col-status">Target</th>
+                        <th className="col-status">Status</th>
+                        <th className="col-target">Target</th>
+                        <th className="col-project">Project</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {project_rows}
+                    {task_rows}
                 </tbody>
             </table>
         );
     }
 }
 
-export default ProjectsListView
+export default TaskListView

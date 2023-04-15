@@ -11,6 +11,7 @@ class Projects extends Component{
         super(props);
         this.state={
             projectlist:null,
+            listtype:"project"
         }
     }
     //  lifecycle method
@@ -37,7 +38,7 @@ class Projects extends Component{
         return(
             <div id="projects" className="main-view">
                 <Navbar />
-                <MainContainer projectlist={this.state.projectlist}/>
+                <MainContainer listtype={this.state.listtype} datalist={this.state.projectlist}/>
                 <Footer />
             </div>        
         );

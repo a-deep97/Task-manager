@@ -11,7 +11,6 @@ class ProjectRow extends Component{
     }
 
     render(){
-        console.log("this is a project row",this.props.project)
         return(
             <tr className="project-table-row">
                 <td className="project-row-data">{this.props.project.id}</td>

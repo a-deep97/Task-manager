@@ -14,10 +14,11 @@ class MainContainer extends Component{
         
     }
     render(){
+        console.log("list type is",this.props.datalist)
         return(
             <div className="main-container">
                 <SidePanel />
-                <MainView projectlist={this.props.projectlist}/>
+                <MainView listtype = {this.props.listtype} datalist={this.props.datalist}/>
             </div>
         );
     };

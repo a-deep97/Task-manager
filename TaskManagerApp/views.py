@@ -21,7 +21,7 @@ def getProjectList(request):
 
 @api_view(['GET'])
 def getTaskList(request):
-    data=Tasks().get_all_tasks()
+    data=TaskUtil.get_tasks()
     return Response(data)
 
 @api_view(['GET','POST'])
