@@ -5,15 +5,20 @@ import { Component } from "react";
  */
 
 class ProjectRow extends Component{
+    
+    constructor(props){
+        super(props)
+    }
+
     render(){
+        console.log("this is a project row",this.props.project)
         return(
             <tr className="project-table-row">
-                <td className="project-row-data" placeholder="project id">project id</td>
-                <td className="project-row-data" placeholder="project id">title</td>
-                <td className="project-row-data" placeholder="project id">owner</td>
-                <td className="project-row-data" placeholder="project id">target</td>
-                <td className="project-row-data" placeholder="project id">Progress</td>
-                <td className="project-row-data" placeholder="project id">status</td>
+                <td className="project-row-data">{this.props.project.id}</td>
+                <td className="project-row-data" >{this.props.project.title}</td>
+                <td className="project-row-data" >{this.props.project.description}</td>
+                <td className="project-row-data" >{this.props.project.status}</td>
+                <td className="project-row-data" >{this.props.project.owner}</td>
             </tr>
         );
     }

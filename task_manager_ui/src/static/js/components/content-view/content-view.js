@@ -9,10 +9,13 @@ import ProjectsListView from './projects-list-view';
 */
 
 class ContentView extends Component{
+    constructor(props){
+        super(props)
+    }
     render(){
         return(
             <div id="content-view">
-                <ProjectsListView/>
+                <ProjectsListView projectlist={this.props.projectlist}/>
             </div>
         );
     };

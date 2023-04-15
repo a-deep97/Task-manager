@@ -32,7 +32,13 @@ def createTask(request):
 
 @api_view(['GET','POST'])
 def createProject(request):
-    data={}
+    data={
+        "title":"project 5",
+        "description":"this is project 5",
+        "status":"",
+        "emp_id":"4",
+        "target":"no target"
+    }
     res=ProjectUtil.create_project(**data)
     return Response(res)
 

@@ -8,11 +8,16 @@ import SidePanel from "./side-panel";
 */
 
 class MainContainer extends Component{
+    
+    constructor(props){
+        super(props)
+        
+    }
     render(){
         return(
             <div className="main-container">
                 <SidePanel />
-                <MainView />
+                <MainView projectlist={this.props.projectlist}/>
             </div>
         );
     };
