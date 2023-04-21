@@ -11,7 +11,6 @@ class TaskRow extends Component{
     }
 
     render(){
-        console.log(this.props.task.id)
         return(
             <tr className="task-table-row">
                 <td className="task-row-data">{this.props.task.id}</td>

@@ -12,10 +12,15 @@ class DropDown extends Component{
         this.state={
             selectedOption:null
         }
+        this.HandleOnChange=this.HandleOnChange.bind(this)
     }
 
     HandleOnChange(event){
-        this.setState({selectedOption:event.target.value})
+        this.setState({selectedOption:event.target.value},()=>{
+            console.log("selected option: ",this.state.selectedOption)
+        })
+        // calling callback function as properties to return selected option to form
+        this.props.onSelect(this.state.selectedOption)
     }
     createOptions(){
         let optionList=[]
@@ -28,10 +33,9 @@ class DropDown extends Component{
         return optionList
     }
     render(){
-        console.log("filter list",this.props.options)
         const options_list=this.createOptions()
         return(
-            <select value={this.state.selectedOption} onChange={this.HandleonChange}>
+            <select value={this.state.selectedOption} onChange={this.HandleOnChange}>
                 <option value="">select</option>
                 {options_list}
             </select>

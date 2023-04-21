@@ -13,6 +13,7 @@ function Search(props){
 
     const navigate=useNavigate();
     const [searchParam,setsearchParam]=useState('');
+    const [filterOption,setfilterOption]=useState('');
     const [filterList,setFilterList]=useState((value)=>{
         /** Function to create filter list based on page */
         let filter={
@@ -25,21 +26,25 @@ function Search(props){
     function handleChange(event){
         /** Function to handle changed input values */
         setsearchParam(event.target.value)
+        console.log("filter option",filterOption)
     }
     function handleSubmit(event){
         /** Function to handle even in search button submit */
         event.preventDefault()
         if(props.listtype=="projects"){
-            navigate('/tasks',{state:{param:searchParam}})
+            navigate('/projects',{state:{key:filterOption,param:searchParam}})
         }
         else if(props.listtype=="tasks"){
-            navigate('/projects',{state:{param:searchParam}})
+            navigate('/tasks',{state:{key:filterOption,param:searchParam}})
         } 
+    }
+    function handleOptionSelect(option){
+        setfilterOption(option)
     }
 
     return(
         <form id="search-form" onSubmit={handleSubmit}>
-            <DropDown options={filterList} />
+            <DropDown options={filterList} onSelect={handleOptionSelect} />
             <input 
                 type="text" 
                 value={searchParam} 
