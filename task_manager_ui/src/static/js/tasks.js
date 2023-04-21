@@ -14,7 +14,7 @@ class Tasks extends Component{
         super(props)
         this.state={
             tasklist:null,
-            listtype:"task"
+            listtype:"tasks"
         }
     }
     //  lifecycle method

@@ -11,7 +11,7 @@ class Projects extends Component{
         super(props);
         this.state={
             projectlist:null,
-            listtype:"project"
+            listtype:"projects"
         }
     }
     //  lifecycle method

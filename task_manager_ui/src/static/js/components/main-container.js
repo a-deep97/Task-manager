@@ -14,7 +14,6 @@ class MainContainer extends Component{
         
     }
     render(){
-        console.log("list type is",this.props.datalist)
         return(
             <div className="main-container">
                 <SidePanel />
