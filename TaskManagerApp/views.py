@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -15,7 +16,12 @@ def projects(request):
 @api_view(['GET'])
 def getProjectList(request):
 
-    data=ProjectUtil.get_projects()
+    
+    key = request.GET.get('key')
+    param = request.GET.get('param')
+    key = None if key=='null' else key
+    param = None if param=='null' else param
+    data = ProjectUtil.query_projects(key=key,param=param)
     
     return Response(data)
 
@@ -36,7 +42,7 @@ def createProject(request):
         "title":"project 5",
         "description":"this is project 5",
         "status":"",
-        "emp_id":"4",
+        "owner":"4",
         "target":"no target"
     }
     res=ProjectUtil.create_project(**data)

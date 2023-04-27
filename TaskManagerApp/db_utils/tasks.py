@@ -14,22 +14,22 @@ class Tasks(ModelBase):
     def initiate(self,
                 title:str,
                 proj_id:str,
-                emp_id:str="",
+                owner:str="",
                 description:str="",
                 status:Status=Status.Unknown.name,
                 target:Any=""):
         self.title=title
         self.proj_id=proj_id
-        self.emp_id=emp_id
+        self.owner=owner
         self.description=description
         self.status=status
         self.target=target
     
     def create_task(self):
-        params=[self.title,self.proj_id,self.emp_id,self.description,self.status,self.target]
+        params=[self.title,self.proj_id,self.owner,self.description,self.status,self.target]
         query=f"""
             INSERT INTO {self.table}
-            (title,proj_id,emp_id,description,status,target)
+            (title,proj_id,owner,description,status,target)
             VALUES (%s,%s,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
@@ -39,7 +39,7 @@ class Tasks(ModelBase):
             SELECT * FROM {self.table}
         """
         if user:
-            query=query + f"WHERE emp_id='{user}'"
+            query=query + f"WHERE owner='{user}'"
         return self.read_all(query,None)
     
     def update_task(self,columns:Dict[str,Any],clauses:Dict[str,Any]):

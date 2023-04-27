@@ -18,9 +18,9 @@ class DropDown extends Component{
     HandleOnChange(event){
         this.setState({selectedOption:event.target.value},()=>{
             console.log("selected option: ",this.state.selectedOption)
+            // calling callback function as properties to return selected option to form
+            this.props.onSelect(this.state.selectedOption)
         })
-        // calling callback function as properties to return selected option to form
-        this.props.onSelect(this.state.selectedOption)
     }
     createOptions(){
         let optionList=[]

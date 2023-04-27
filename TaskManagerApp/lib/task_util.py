@@ -22,7 +22,7 @@ class TaskUtil:
         params={
             "title":kwargs.get("title","Unknown title"),
             "proj_id":kwargs.get("proj_id"),
-            "emp_id":kwargs.get("emp_id"),
+            "owner":kwargs.get("owner"),
             "description":kwargs.get("description"),
             "status":kwargs.get("status",Status.Unknown.name),
             "target":kwargs.get("target"),

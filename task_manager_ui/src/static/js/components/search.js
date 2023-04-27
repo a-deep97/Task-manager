@@ -26,13 +26,13 @@ function Search(props){
     function handleChange(event){
         /** Function to handle changed input values */
         setsearchParam(event.target.value)
-        console.log("filter option",filterOption)
     }
     function handleSubmit(event){
         /** Function to handle even in search button submit */
         event.preventDefault()
         if(props.listtype=="projects"){
-            navigate('/projects',{state:{key:filterOption,param:searchParam}})
+            const state = {key:filterOption,param:searchParam}
+            navigate('/projects',{state})
         }
         else if(props.listtype=="tasks"){
             navigate('/tasks',{state:{key:filterOption,param:searchParam}})

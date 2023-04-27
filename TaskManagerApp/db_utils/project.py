@@ -17,30 +17,37 @@ class Project(ModelBase):
                  title:str,
                  description:str="",
                  status:Status=Status.Unknown,
-                 emp_id:str="",
+                 owner:str="",
                  target:Any=""):
         
         self.title=title
         self.description=description
         self.status=status
         self.target=target
-        self.emp_id=emp_id
+        self.owner=owner
 
     def create_project(self):
-        params=[self.title,self.description,self.status,self.emp_id,self.target]
+        params=[self.title,self.description,self.status,self.owner,self.target]
         query=f"""
             INSERT INTO {self.table}
-            (title,description,status,emp_id,target)
+            (title,description,status,owner,target)
             VALUES (%s,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
     
-    def get_all_projects(self):
+    def get_projects(self,key:str,param:str):
         query=f"""
             SELECT * FROM {self.table}
         """
+        if key and param:
+            query+=f"\n WHERE {key} = "
+            if param.isdigit():
+                param=int(param)
+                query+=f"{param}"
+            else:
+                query+=f"'{param}'"
         return self.read_all(query,None)
-
+ 
     def update_project(self,columns:Dict[str,Any],clauses:Dict[str,Any]):
         query=f"""
             UPDATE {self.table}
