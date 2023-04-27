@@ -21,7 +21,7 @@ class TaskUtil:
         task=Tasks()
         params={
             "title":kwargs.get("title","Unknown title"),
-            "proj_id":kwargs.get("proj_id"),
+            "project":kwargs.get("project"),
             "owner":kwargs.get("owner"),
             "description":kwargs.get("description"),
             "status":kwargs.get("status",Status.Unknown.name),
@@ -32,21 +32,19 @@ class TaskUtil:
         return params
 
     @classmethod
-    def get_tasks(cls,params:Dict=None):
+    def get_tasks(cls,key:str=None,param:str=None):
         
         data=[]
-        if not params:
-    
-            res=Tasks().get_all_tasks()
-            for each in res:
-                entity={
-                    TASK_ID_KEY:each[0],
-                    TASK_TITLE_KEY:each[1],
-                    PROJET_ID_KEY:each[2],
-                    OWNER_KEY:each[3],
-                    TASK_DESC_KEY:each[4],
-                    STATUS_KEY:each[5],
-                    TARGET_KEY:each[6],
-                }
-                data.append(entity)
+        res=Tasks().query_tasks(key,param)
+        for each in res:
+            entity={
+                TASK_ID_KEY:each[0],
+                TASK_TITLE_KEY:each[1],
+                PROJET_ID_KEY:each[2],
+                OWNER_KEY:each[3],
+                TASK_DESC_KEY:each[4],
+                STATUS_KEY:each[5],
+                TARGET_KEY:each[6],
+            }
+            data.append(entity)
         return data

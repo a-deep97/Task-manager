@@ -13,33 +13,38 @@ class Tasks(ModelBase):
     
     def initiate(self,
                 title:str,
-                proj_id:str,
+                project:str,
                 owner:str="",
                 description:str="",
                 status:Status=Status.Unknown.name,
                 target:Any=""):
         self.title=title
-        self.proj_id=proj_id
+        self.project=project
         self.owner=owner
         self.description=description
         self.status=status
         self.target=target
     
     def create_task(self):
-        params=[self.title,self.proj_id,self.owner,self.description,self.status,self.target]
+        params=[self.title,self.project,self.owner,self.description,self.status,self.target]
         query=f"""
             INSERT INTO {self.table}
-            (title,proj_id,owner,description,status,target)
+            (title,project,owner,description,status,target)
             VALUES (%s,%s,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
     
-    def get_all_tasks(self,user:str=None):
+    def query_tasks(self,key:str, param:str):
         query=f"""
             SELECT * FROM {self.table}
         """
-        if user:
-            query=query + f"WHERE owner='{user}'"
+        if key and param:
+            query+=f"\n WHERE {key} = "
+            if param.isdigit():
+                param=int(param)
+                query+=f"{param}"
+            else:
+                query+=f"'{param}'"
         return self.read_all(query,None)
     
     def update_task(self,columns:Dict[str,Any],clauses:Dict[str,Any]):

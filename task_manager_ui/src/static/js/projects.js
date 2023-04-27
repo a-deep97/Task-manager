@@ -12,9 +12,7 @@ function Projects() {
     const listtype = "projects";
     const location = useLocation();
     const {key=null , param=null} = location.state || {};
-    console.log("projet page loaded")
     useEffect(() => {
-        console.log("use effect called")
         projectList();
     }, [key, param]);
 

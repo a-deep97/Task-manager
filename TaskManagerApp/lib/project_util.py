@@ -30,11 +30,11 @@ class ProjectUtil:
         return params
     
     @classmethod
-    def query_projects(cls,key:str=None,param:str=None):
+    def get_projects(cls,key:str=None,param:str=None):
         
         data=[]
        
-        res=Project().get_projects(key,param)
+        res=Project().query_projects(key,param)
         for each in res:
             entity={
                 PROJECT_ID_KEY:each[0],

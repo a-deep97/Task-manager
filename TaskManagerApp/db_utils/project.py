@@ -35,7 +35,7 @@ class Project(ModelBase):
         """
         self.insert(query=query,params=params)
     
-    def get_projects(self,key:str,param:str):
+    def query_projects(self,key:str,param:str):
         query=f"""
             SELECT * FROM {self.table}
         """

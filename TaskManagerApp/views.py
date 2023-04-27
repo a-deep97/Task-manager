@@ -15,19 +15,21 @@ def projects(request):
 
 @api_view(['GET'])
 def getProjectList(request):
-
-    
     key = request.GET.get('key')
     param = request.GET.get('param')
     key = None if key=='null' else key
     param = None if param=='null' else param
-    data = ProjectUtil.query_projects(key=key,param=param)
+    data = ProjectUtil.get_projects(key=key,param=param)
     
     return Response(data)
 
 @api_view(['GET'])
 def getTaskList(request):
-    data=TaskUtil.get_tasks()
+    key = request.GET.get('key')
+    param = request.GET.get('param')
+    key = None if key=='null' else key
+    param = None if param=='null' else param
+    data = TaskUtil.get_tasks(key=key,param=param)
     return Response(data)
 
 @api_view(['GET','POST'])
