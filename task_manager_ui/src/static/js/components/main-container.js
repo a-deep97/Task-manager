@@ -7,20 +7,15 @@ import SidePanel from "./side-panel";
     THis component represents main container other than navbar  and footer
 */
 
-class MainContainer extends Component{
-    
-    constructor(props){
-        super(props)
-        
-    }
-    render(){
-        return(
+
+function MainContainer(props) {
+    return (
             <div className="main-container">
                 <SidePanel />
-                <MainView listtype = {this.props.listtype} datalist={this.props.datalist}/>
+                    
+                <MainView componentToRender={props.componentToRender} data={props.data} />
             </div>
-        );
-    };
-};
+    );
+}
 
-export default MainContainer
+export default MainContainer;

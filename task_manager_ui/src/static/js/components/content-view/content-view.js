@@ -9,20 +9,25 @@ import Search from '../search';
     inside main-container  , apart from side panel
 */
 
-class ContentView extends Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
-        return(
-            <div id="content-view">
-                <Search listtype={this.props.listtype} />
-                {this.props.listtype=="project"
-                    ?<ProjectsListView projectlist={this.props.datalist} />
-                    :<TaskListView tasklist={this.props.datalist} />}
-            </div>
-        );
-    };
-};
 
-export default ContentView
+function ContentView(props) {
+    let componentToRender;
+
+    if (props.componentToRender === "projects") {
+        componentToRender = <ProjectsListView projectlist={props.data} />;
+    } else if (props.componentToRender === "tasks") {
+        componentToRender = <TaskListView tasklist={props.data} />;
+    } else if (props.componentToRender === "project") {
+        // Handle additional conditions as needed
+    } else if (props.componentToRender === "task") {
+        // Handle additional conditions as needed
+    }
+
+    return (
+        <div id="content-view">
+        {componentToRender}
+        </div>
+    );
+}
+
+export default ContentView;

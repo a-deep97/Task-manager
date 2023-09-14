@@ -1,6 +1,5 @@
 import React from "react";
 import '../../../css/list-view.css';
-import ProjectRow from './project-row';
 
 /**
  * This component represents a list view of projects.

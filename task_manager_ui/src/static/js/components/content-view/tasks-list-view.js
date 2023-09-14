@@ -1,6 +1,5 @@
 import React from "react";
 import '../../../css/list-view.css';
-import TaskRow from './task-row';
 
 /**
  * This component represents a list view of tasks.

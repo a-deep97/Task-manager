@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom';
 
 function Projects() {
     const [projectlist, setProjectList] = useState(null);
-    const listtype = "projects";
+    const componentToRender = "projects";
     const location = useLocation();
     const {key=null , param=null} = location.state || {};
     useEffect(() => {
@@ -18,7 +18,6 @@ function Projects() {
 
     // method to fetch project list
     const projectList = () => {
-        console.log("project list called")
         fetch(`http://127.0.0.1:8000/projects?key=${key}&param=${param}`)
         .then(response => response.json())
         .then(data => {
@@ -30,7 +29,7 @@ function Projects() {
     return (
         <div id="projects" className="main-view">
         <Navbar />
-        <MainContainer listtype={listtype} datalist={projectlist}/>
+        <MainContainer componentToRender={componentToRender} data={projectlist}/>
         <Footer />
         </div>
     );

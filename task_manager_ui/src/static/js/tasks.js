@@ -13,10 +13,9 @@ import { useLocation } from 'react-router-dom';
 
 function Tasks() {
   const [tasklist, setTaskList] = useState(null);
-  const listtype = "tasks";
+  const componentToRender = "tasks";  // prop variable to specify the page to be navigated to. i.e. tasks /projects/task/project etc
   const location = useLocation();
   const {key=null , param=null} = location.state || {};
-  console.log("projet page loaded")
   useEffect(() => {
       taskList();
   }, [key, param]);
@@ -41,7 +40,7 @@ function Tasks() {
   return (
     <div id="tasks" className="main-view">
       <Navbar />
-      <MainContainer listtype={listtype} datalist={tasklist} />
+      <MainContainer componentToRender={componentToRender} data={tasklist} />
       <Footer />
     </div>
   );
