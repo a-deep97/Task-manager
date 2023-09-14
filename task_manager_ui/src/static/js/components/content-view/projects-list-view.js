@@ -1,49 +1,58 @@
-import { Component } from "react";
+import React from "react";
 import '../../../css/list-view.css';
 import ProjectRow from './project-row';
 
 /**
- * this component represent list view od projects
+ * This component represents a list view of projects.
  */
-class ProjectsListView extends Component{
-    constructor(props){
-        super(props)
+function ProjectsListView(props) {
+  const listProjects = () => {
+    /**
+     * Function to define project row components
+     */
+    let projectRows = [];
+    if (props.projectList == null) {
+      return null;
     }
+    for (let i = 0; i < props.projectList.length; i++) {
+      const project = props.projectList[i];
 
-    list_project(){
-        /**
-         * function to define project row components
-         */
-        let project_rows=[]
-        if (this.props.projectlist == null){
-            return null
-        }
-        for (let i=0;i<this.props.projectlist.length;i++){
-            project_rows.push(<ProjectRow project={this.props.projectlist[i]} />)
-        }
-        return project_rows
-    }
+      // Create JSX representing the <tr> element and its children for a project row
+      const rowJSX = (
+        <tr className="project-table-row" key={i}>
+          <td className="project-row-data">{project.id}</td>
+          <td className="project-row-data">{project.title}</td>
+          <td className="project-row-data">{project.description}</td>
+          <td className="project-row-data">{project.status}</td>
+          <td className="project-row-data">{project.owner}</td>
+        </tr>
+      );
 
-    render(){
-        const project_rows=this.list_project()
-        return(
-            <table id="table" className="table">
-                <thead>
-                    <tr id="table-row">
-                        <th className="col-id">Project ID</th>
-                        <th className="col-title">Title</th>
-                        <th className="col-owner">Description</th>
-                        <th className="col-target">Status</th>
-                        <th className="col-progress">Owner</th>
-                        <th className="col-status">Target</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {project_rows}
-                </tbody>
-            </table>
-        );
+      // Push the JSX into the array
+      projectRows.push(rowJSX);
     }
+    return projectRows;
+  };
+
+  const projectRows = listProjects();
+
+  return (
+    <table id="table" className="table">
+      <thead>
+        <tr id="table-row">
+          <th className="col-id">Project ID</th>
+          <th className="col-title">Title</th>
+          <th className="col-owner">Description</th>
+          <th className="col-target">Status</th>
+          <th className="col-progress">Owner</th>
+          <th className="col-status">Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        {projectRows}
+      </tbody>
+    </table>
+  );
 }
 
-export default ProjectsListView
+export default ProjectsListView;

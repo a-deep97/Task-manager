@@ -1,50 +1,61 @@
-import { Component } from "react";
+import React from "react";
 import '../../../css/list-view.css';
 import TaskRow from './task-row';
 
 /**
- * this component represent list view od projects
+ * This component represents a list view of tasks.
  */
-class TaskListView extends Component{
-    constructor(props){
-        super(props)
-    }
+function TaskListView(props) {
 
-    list_task(){
+    
+    const listTasks = () => {
         /**
-         * function to define project row components
+         * Function to define task row components
          */
-        let task_rows=[]
-        if (this.props.tasklist == null){
-            return null
+        let taskRows = [];
+        if (props.tasklist == null) {
+        return null;
         }
-        for (let i=0;i<this.props.tasklist.length;i++){
-            task_rows.push(<TaskRow task={this.props.tasklist[i]} />)
-        }
-        return task_rows
-    }
+        for (let i = 0; i < props.tasklist.length; i++) {
+            const task = props.tasklist[i];
+            // Create JSX representing the <tr> element and its children
+            const rowJSX = (
+                <tr className="task-table-row" key={i}>
+                <td className="task-row-data">{task.id}</td>
+                <td className="task-row-data">{task.title}</td>
+                <td className="task-row-data">{task.owner}</td>
+                <td className="task-row-data">{task.description}</td>
+                <td className="task-row-data">{task.status}</td>
+                <td className="task-row-data">{task.target}</td>
+                <td className="task-row-data">{task.project}</td>
+                </tr>
+            );
 
-    render(){
-        const task_rows=this.list_task()
-        return(
-            <table id="table" className="table">
-                <thead>
-                    <tr id="table-row">
-                        <th className="col-id">Task ID</th>
-                        <th className="col-title">Title</th>
-                        <th className="col-description">Owner</th>
-                        <th className="col-owner">Description</th>
-                        <th className="col-status">Status</th>
-                        <th className="col-target">Target</th>
-                        <th className="col-project">Project</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {task_rows}
-                </tbody>
-            </table>
-        );
-    }
+            // Push the JSX into the array
+            taskRows.push(rowJSX);
+        }
+        return taskRows;
+    };
+    const taskRows = listTasks();
+
+    return (
+        <table id="table" className="table">
+        <thead>
+            <tr id="table-row">
+            <th className="col-id">Task ID</th>
+            <th className="col-title">Title</th>
+            <th className="col-description">Owner</th>
+            <th className="col-owner">Description</th>
+            <th className="col-status">Status</th>
+            <th className="col-target">Target</th>
+            <th className="col-project">Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            {taskRows}
+        </tbody>
+        </table>
+    );
 }
 
-export default TaskListView
+export default TaskListView;

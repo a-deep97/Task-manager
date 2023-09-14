@@ -1,28 +1,21 @@
-import { Component } from "react";
-
+import React from "react";
+import { useNavigate } from 'react-router-dom';
 /**
  * This component represents a row data for project details
  */
+function TaskRow(props) {
 
-class TaskRow extends Component{
-    
-    constructor(props){
-        super(props)
-    }
-
-    render(){
-        return(
-            <tr className="task-table-row">
-                <td className="task-row-data">{this.props.task.id}</td>
-                <td className="task-row-data" >{this.props.task.title}</td>
-                <td className="task-row-data" >{this.props.task.owner}</td>
-                <td className="task-row-data" >{this.props.task.description}</td>
-                <td className="task-row-data" >{this.props.task.status}</td>
-                <td className="task-row-data" >{this.props.task.target}</td>
-                <td className="task-row-data" >{this.props.task.project}</td>
-            </tr>
-        );
-    }
+    return (
+    <tr className="task-table-row">
+        <td className="task-row-data">{props.task.id}</td>
+        <td className="task-row-data">{props.task.title}</td>
+        <td className="task-row-data">{props.task.owner}</td>
+        <td className="task-row-data">{props.task.description}</td>
+        <td className="task-row-data">{props.task.status}</td>
+        <td className="task-row-data">{props.task.target}</td>
+        <td className="task-row-data">{props.task.project}</td>
+    </tr>
+    );
 }
 
-export default TaskRow
+export default TaskRow;
