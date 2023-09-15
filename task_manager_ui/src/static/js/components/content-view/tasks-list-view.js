@@ -8,9 +8,9 @@ import '../../../css/list-view.css';
 function TaskListView(props) {
 
     const navigate=useNavigate();
-    function handleRowClick(event){
-        event.preventDefault()
-        navigate('/tasks/')
+    function handleRowClick(data){
+        const state={key:'id',param:data}
+        navigate('/task/',{state})
       }
 
     const listTasks = () => {
@@ -25,7 +25,7 @@ function TaskListView(props) {
             const task = props.tasklist[i];
             // Create JSX representing the <tr> element and its children
             const rowJSX = (
-                <tr className="task-table-row" key={i} onClick={handleRowClick} >
+                <tr className="task-table-row" key={i} onClick={() => handleRowClick(task.id)} >
                     <td className="task-row-data">{task.id}</td>
                     <td className="task-row-data">{task.title}</td>
                     <td className="task-row-data">{task.owner}</td>

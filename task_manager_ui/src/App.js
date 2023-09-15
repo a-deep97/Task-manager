@@ -6,6 +6,7 @@ import Tasks from './static/js/tasks';
 //import Task from './static/js/task';
 import Project from './static/js/project';
 import './static/css/App.css';
+import Task from './static/js/task';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/projects'  element={<Projects />} />
         <Route path='/project' element={<Project/>} />
         <Route path='/tasks' element={<Tasks />} />
+        <Route path='/task' element={<Task/>} />
         <Route path='/user' element={<User />} />
       </Routes>
     </BrowserRouter> 

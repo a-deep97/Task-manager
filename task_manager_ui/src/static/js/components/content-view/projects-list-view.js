@@ -11,7 +11,6 @@ function ProjectsListView(props) {
   
   function handleRowClick(data){
     const state={key:'id',param:data}
-    console.log(state)
     navigate('/project/',{state})
   }
   const listProjects = () => {

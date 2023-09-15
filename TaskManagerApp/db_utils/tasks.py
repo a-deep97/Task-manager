@@ -46,7 +46,16 @@ class Tasks(ModelBase):
             else:
                 query+=f"'{param}'"
         return self.read_all(query,None)
-    
+
+    def query_task_data(self,key:str,param:str):
+        query=f"""
+            SELECT * FROM {self.table}
+            WHERE {key} = {param}
+        """
+        if param.isdigit():
+            param=int(param)
+        return self.read(query,None)
+
     def update_task(self,columns:Dict[str,Any],clauses:Dict[str,Any]):
         query=f"""
             UPDATE {self.table}

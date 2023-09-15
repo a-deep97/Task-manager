@@ -48,3 +48,18 @@ class TaskUtil:
             }
             data.append(entity)
         return data
+
+    @classmethod
+    def get_task_data(cls,key:str,param:str):
+        data={}
+        res=Tasks().query_task_data(key,param)
+        data={
+            TASK_ID_KEY:res[0],
+                TASK_TITLE_KEY:res[1],
+                PROJET_ID_KEY:res[2],
+                OWNER_KEY:res[3],
+                TASK_DESC_KEY:res[4],
+                STATUS_KEY:res[5],
+                TARGET_KEY:res[6],
+        }
+        return data

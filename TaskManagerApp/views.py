@@ -33,6 +33,13 @@ def getProjectList(request):
     return Response(data)
 
 @api_view(['GET'])
+def getTaskDetail(request):
+    key = request.GET.get('key')
+    param = request.GET.get('param')
+    data=TaskUtil.get_task_data(key=key,param=param)
+    return Response(data)
+
+@api_view(['GET'])
 def getTaskList(request):
     key = request.GET.get('key')
     param = request.GET.get('param')
