@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import '../../../css/list-view.css';
 
 /**
@@ -6,7 +7,12 @@ import '../../../css/list-view.css';
  */
 function TaskListView(props) {
 
-    
+    const navigate=useNavigate();
+    function handleRowClick(event){
+        event.preventDefault()
+        navigate('/tasks/')
+      }
+
     const listTasks = () => {
         /**
          * Function to define task row components
@@ -19,14 +25,14 @@ function TaskListView(props) {
             const task = props.tasklist[i];
             // Create JSX representing the <tr> element and its children
             const rowJSX = (
-                <tr className="task-table-row" key={i}>
-                <td className="task-row-data">{task.id}</td>
-                <td className="task-row-data">{task.title}</td>
-                <td className="task-row-data">{task.owner}</td>
-                <td className="task-row-data">{task.description}</td>
-                <td className="task-row-data">{task.status}</td>
-                <td className="task-row-data">{task.target}</td>
-                <td className="task-row-data">{task.project}</td>
+                <tr className="task-table-row" key={i} onClick={handleRowClick} >
+                    <td className="task-row-data">{task.id}</td>
+                    <td className="task-row-data">{task.title}</td>
+                    <td className="task-row-data">{task.owner}</td>
+                    <td className="task-row-data">{task.description}</td>
+                    <td className="task-row-data">{task.status}</td>
+                    <td className="task-row-data">{task.target}</td>
+                    <td className="task-row-data">{task.project}</td>
                 </tr>
             );
 

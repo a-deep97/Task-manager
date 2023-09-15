@@ -45,3 +45,16 @@ class ProjectUtil:
             }
             data.append(entity)
         return data
+
+    @classmethod
+    def get_project_data(cls,key:str,param:str):
+        
+        res=Project().query_project_data(key,param)
+        data={
+            PROJECT_ID_KEY:res[0],
+                PROJECT_TITLE_KEY:res[1],
+                PROJECT_DESC_KEY:res[2],
+                STATUS_KEY:res[3],
+                OWNER_KEY:res[4],
+        }
+        return res

@@ -19,7 +19,9 @@ function Projects() {
     // method to fetch project list
     const projectList = () => {
         fetch(`http://127.0.0.1:8000/projects?key=${key}&param=${param}`)
-        .then(response => response.json())
+        .then(response => {
+            return response.json();
+        })
         .then(data => {
             setProjectList(data);
         })

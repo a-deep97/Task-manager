@@ -47,7 +47,17 @@ class Project(ModelBase):
             else:
                 query+=f"'{param}'"
         return self.read_all(query,None)
- 
+    
+    def query_project_data(self,key:str,param:str):
+
+        if param.isdigit():
+            param=int(param)
+        query=f"""
+            SELECT * FROM {self.table}
+            WHERE {key}={param}
+        """
+        return self.read(query,None)
+
     def update_project(self,columns:Dict[str,Any],clauses:Dict[str,Any]):
         query=f"""
             UPDATE {self.table}

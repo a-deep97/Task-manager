@@ -14,6 +14,15 @@ def projects(request):
     return render(request,template_name='index.html')
 
 @api_view(['GET'])
+def getProjectDetail(request):
+    key=request.GET.get('key')
+    param=request.GET.get('param')
+    if not key and param:
+        return
+    data =ProjectUtil.get_project_data(key=key,param=param)
+    return Response(data)
+
+@api_view(['GET'])
 def getProjectList(request):
     key = request.GET.get('key')
     param = request.GET.get('param')

@@ -1,10 +1,19 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import '../../../css/list-view.css';
 
 /**
  * This component represents a list view of projects.
  */
 function ProjectsListView(props) {
+
+  const navigate=useNavigate();
+  
+  function handleRowClick(data){
+    const state={key:'id',param:data}
+    console.log(state)
+    navigate('/project/',{state})
+  }
   const listProjects = () => {
     /**
      * Function to define project row components
@@ -18,7 +27,7 @@ function ProjectsListView(props) {
 
       // Create JSX representing the <tr> element and its children for a project row
       const rowJSX = (
-        <tr className="project-table-row" key={i}>
+        <tr className="project-table-row" key={i} onClick={() => handleRowClick(project.id)} >
           <td className="project-row-data">{project.id}</td>
           <td className="project-row-data">{project.title}</td>
           <td className="project-row-data">{project.description}</td>
