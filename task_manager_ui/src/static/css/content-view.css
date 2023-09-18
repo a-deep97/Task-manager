@@ -9,6 +9,7 @@
     width: 75%;
     margin-right: 5px;
     margin-left: 5px;
+    overflow-y: scroll;
 }
 #content-header{
     display: inherit;

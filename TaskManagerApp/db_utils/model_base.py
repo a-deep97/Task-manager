@@ -24,6 +24,7 @@ class ModelBase(object):
         return
         
     def insert(self,query:str,params:List):
+        last_inserted_id=None
         with connection.cursor() as cursor:
             cursor.execute(query,params)
     

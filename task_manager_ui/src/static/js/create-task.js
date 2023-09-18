@@ -24,16 +24,28 @@ function CreateTask() {
     }
     function postTaskForm(data){
         console.log("posting task data...")
-        try{
-            //throw new Error("Not implemented error")
-        }
-        catch (error){
-            window.alert("Task could not be created :( \n\n "+ error.message)
-        }
+        fetch('http://127.0.0.1:8000/task/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Specify the content type as JSON
+            },
+            body: JSON.stringify(formData), // Convert the form data to JSON
+            })
+            .then((response) => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Response from server:', data);
+                navigate('/tasks/')
+            })
+            .catch((error) => {
+                console.error('There was a problem with the fetch operation:', error);
+                window.alert("Task could not be created :( \n\n "+ error.message)
+        });
         
-        //navigating to created task
-        const state={key:'id',param:1}
-        navigate('/task/',{state})
     }
     return (
         <div id="create-task" className="main-view">
