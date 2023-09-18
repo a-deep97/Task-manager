@@ -10,14 +10,13 @@ import '../../css/side-panel.css'
 function SidePanel(props){
 
     const navigate=useNavigate();
-    function handleSubmit(event){
-        /** Function to handle even in search button submit */
-        event.preventDefault()
-        if(props.view_type=="projects"){
-            navigate('/projects')
+    function handleSubmit(navigateTO){
+        /** Function to handle click event on side panel lists */
+        if (navigateTO=="projects"){
+            navigate('/projects/',{param:null,key:null})
         }
-        else if(props.view_type=="tasks"){
-            navigate('/tasks')
+        else if(navigateTO=="tasks"){
+            navigate('/tasks/')
         } 
     }
 
@@ -27,8 +26,8 @@ function SidePanel(props){
                 <button id="create-task-btn"> Create Task</button>
                 <div id="side-panel-contents">
                     <div id="side-panel-link-container">
-                        <div id="my-tasks" className="side-panel-links" onClick={handleSubmit}>My Tasks</div>
-                        <div id="my-projects" className="side-panel-links">My Projects</div>
+                        <div id="my-tasks" className="side-panel-links" onClick={() => handleSubmit("tasks")}>My Tasks</div>
+                        <div id="my-projects" className="side-panel-links" onClick={() => handleSubmit("projects")}>My Projects</div>
                     </div>
                 </div>
             </div>
