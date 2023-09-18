@@ -1,5 +1,4 @@
 import '../css/common.css';
-import { Component } from "react";
 import Navbar from "./components/navbar";
 import MainContainer from './components/main-container';
 import Footer from './components/footer';
@@ -22,18 +21,17 @@ function Task() {
     }, [key, param]);
 
     const taskData = () => {
-    fetch(`http://127.0.0.1:8000/task?key=${key}&param=${param}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setTaskDEtail(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        fetch(`http://127.0.0.1:8000/task?key=${key}&param=${param}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            setTaskDetail(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
   };
-
   return (
     <div id="task" className="main-view">
       <Navbar />
