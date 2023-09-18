@@ -32,13 +32,14 @@ function Task() {
             console.log(error);
         });
   };
-  return (
-    <div id="task" className="main-view">
-      <Navbar />
-      <MainContainer componentToRender={componentToRender} data={taskdetail}/>
-      <Footer />
-    </div>
-  );
+
+    return (
+        <div id="task" className="main-view">
+        <Navbar />
+        <MainContainer componentToRender={componentToRender} data={taskdetail}/>
+        <Footer />
+        </div>
+    );
 };
 
 export default Task;

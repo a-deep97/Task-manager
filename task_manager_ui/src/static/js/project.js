@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /**
- * This component represents task page
+ * This component represents project page
  */
 
 function Project() {
@@ -33,7 +33,7 @@ function Project() {
         console.log(error);
       });
   };
-
+         
   return (
     <div id="project" className="main-view">
       <Navbar />

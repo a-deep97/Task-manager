@@ -57,4 +57,4 @@ class ProjectUtil:
                 STATUS_KEY:res[3],
                 OWNER_KEY:res[4],
         }
-        return res
+        return data
