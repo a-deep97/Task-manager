@@ -3,10 +3,11 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Projects from './static/js/projects'
 import User from './static/js/user';
 import Tasks from './static/js/tasks';
-//import Task from './static/js/task';
 import Project from './static/js/project';
-import './static/css/App.css';
 import Task from './static/js/task';
+import CreateTask from './static/js/create-task';
+
+import './static/css/App.css';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/tasks' element={<Tasks />} />
         <Route path='/task' element={<Task/>} />
         <Route path='/user' element={<User />} />
+        <Route path='/task/create' element={<CreateTask />} />
       </Routes>
     </BrowserRouter> 
   );

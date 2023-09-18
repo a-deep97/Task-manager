@@ -22,6 +22,10 @@
     padding: 5px;
 }
 
+  .task-header > input {
+    margin: 5px 10px;
+}
+       
   
   .task-header > div {
     padding: 5px 10px;
@@ -31,7 +35,7 @@
     border: 2px solid black;
     border-radius: 5px;
   }
-  
+
   .task-body {
     display: flex;
     flex-direction: column;
@@ -40,6 +44,9 @@
     background-color:blanchedalmond;
     border: #007BFF;
     border-radius: 5px;
+  }
+  .task-body > div {
+    margin: 10px 20px;
   }
    
   .task-description {

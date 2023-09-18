@@ -13,7 +13,7 @@ function MainContainer(props) {
             <div className="main-container">
                 <SidePanel />
                     
-                <MainView componentToRender={props.componentToRender} data={props.data} />
+                <MainView componentToRender={props.componentToRender} data={props.data} onSubmit={props.onSubmit} />
             </div>
     );
 }

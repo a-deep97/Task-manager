@@ -12,18 +12,21 @@ function SidePanel(props){
     const navigate=useNavigate();
     function handleSubmit(navigateTO){
         /** Function to handle click event on side panel lists */
-        if (navigateTO=="projects"){
+        if (navigateTO==="projects"){
             navigate('/projects/',{param:null,key:null})
         }
-        else if(navigateTO=="tasks"){
+        else if (navigateTO==="tasks"){
             navigate('/tasks/')
         } 
+        else if (navigateTO==="create-task"){
+            navigate("/task/create/")
+        }
     }
 
     return(
             <div className="side-panel">
                 <div id="side-panel-heading">Tasks</div>
-                <button id="create-task-btn"> Create Task</button>
+                <button id="create-task-btn"  onClick={() => handleSubmit("create-task")}> Create Task</button>
                 <div id="side-panel-contents">
                     <div id="side-panel-link-container">
                         <div id="my-tasks" className="side-panel-links" onClick={() => handleSubmit("tasks")}>My Tasks</div>

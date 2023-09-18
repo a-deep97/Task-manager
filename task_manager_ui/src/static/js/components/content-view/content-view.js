@@ -6,6 +6,7 @@ import TaskListView from './tasks-list-view';
 import Search from '../search';
 import TaskContentView from './task-content-view';
 import ProjectContentView from './project-content-view';
+import CreateTaskForm from '../forms/create-task-form';
 /*
     This component represents view for the project/task data
     inside main-container  , apart from side panel
@@ -23,8 +24,10 @@ function ContentView(props) {
         // Handle additional conditions as needed
         componentToRender= <ProjectContentView projectdata={props.data} />
     } else if (props.componentToRender === "task") {
-        componentToRender =<TaskContentView taskdata={props.data}/>;
+        componentToRender = <TaskContentView taskdata={props.data}/>;
         // Handle additional conditions as needed
+    } else if (props.componentToRender === 'create-task') {
+        componentToRender = < CreateTaskForm onSubmit={props.onSubmit}/>
     }
 
     return (
