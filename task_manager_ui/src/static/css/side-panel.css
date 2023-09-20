@@ -23,7 +23,7 @@
     align-items: center;
 }
 
-#create-task-btn{
+.panel-btn{
     border: none;
     background-color: var(--code1_color6);
     box-shadow: 1px 1px 1px 1px var(--code1_color3);
@@ -49,12 +49,13 @@
     padding-bottom: 5px;
 }
 
-#side-panel-link-container{
+.panel-section{
     display: inherit;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
+    margin: 10px 0px;
 }
 
 .side-panel-links{
@@ -70,6 +71,7 @@
     padding-bottom: 5px;
     padding-left: 10px;
     border-radius: 5px;
+    margin: 10px 0px;
 }
 .side-panel-links:hover{
     background-color: #E1D9D1;
