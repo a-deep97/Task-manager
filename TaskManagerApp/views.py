@@ -64,15 +64,16 @@ def createTask(request):
 
 @api_view(['GET','POST'])
 def createProject(request):
-    data={
-        "title":"project 5",
-        "description":"this is project 5",
-        "status":"",
-        "owner":"4",
-        "target":"no target"
-    }
-    res=ProjectUtil.create_project(**data)
-    return Response(res)
+    if request.method == 'POST':
+        data = request.data
+        try:  
+            res = ProjectUtil.create_project(**data)
+        except Exception as exc:
+            return Response({'error': f'Task could not be created {str(exc)}'}, status=500)
+
+        return Response(res)
+    
+    return Response({'error': 'Invalid request method'}, status=400)
 
 @api_view(['GET'])
 def getUserTasks(request):
