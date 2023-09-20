@@ -6,6 +6,7 @@ import Tasks from './static/js/tasks';
 import Project from './static/js/project';
 import Task from './static/js/task';
 import CreateTask from './static/js/create-task';
+import CreateProject from './static/js/create-project';
 
 import './static/css/App.css';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/task' element={<Task/>} />
         <Route path='/user' element={<User />} />
         <Route path='/task/create' element={<CreateTask />} />
+        <Route path='/project/create' element={<CreateProject/>} />
       </Routes>
     </BrowserRouter> 
   );

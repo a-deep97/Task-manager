@@ -11,19 +11,19 @@ import { useLocation } from 'react-router-dom';
  * This component represents create task page
  */
 
-function CreateTask() {
+function CreateProject() {
     const location = useLocation();
     const navigate=useNavigate();
     // State to hold the form data
     const [formData, setFormData] = useState({});
-    const componentToRender= "create-task"
+    const componentToRender= "create-project"
          
     function handleFormSubmit(data){
         setFormData(data);
         postTaskForm(formData);
     }
     function postTaskForm(data){
-        fetch('http://127.0.0.1:8000/task/create', {
+        fetch('http://127.0.0.1:8000/project/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
@@ -38,16 +38,16 @@ function CreateTask() {
             })
             .then((data) => {
                 console.log('Response from server:', data);
-                navigate('/tasks/')
+                navigate('/projects/')
             })
             .catch((error) => {
                 console.error('There was a problem with the fetch operation:', error);
-                window.alert("Task could not be created :( \n\n "+ error.message)
+                window.alert("Project could not be created :( \n\n "+ error.message)
         });
         
     }
     return (
-        <div id="create-task" className="main-view">
+        <div id="create-project" className="main-view">
         <Navbar />
         <MainContainer componentToRender={componentToRender} data={null} onSubmit={handleFormSubmit}/>
         <Footer />
@@ -55,4 +55,4 @@ function CreateTask() {
     );
 };
 
-export default CreateTask;
+export default CreateProject;

@@ -52,6 +52,7 @@
   .task-description {
     margin: 0;
     height: 200px;
+    resize: none;
   }
 
   .activity {
