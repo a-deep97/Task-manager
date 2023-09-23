@@ -1,36 +1,59 @@
-#table{
-    justify-content: stretch;
+/* Styling for the table */
+#table {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for table headers */
+  #table th {
+    background-color: #007bff;
+    color: #fff;
     padding: 10px;
-}
-#table tr{
     text-align: left;
-    padding: 5px;
-    text-overflow: clip;
-}
-#table-row{
-    margin-bottom: 10px;
-    background-color: var(--code1_color4);
-    border-radius: 5px;
-}
-.col-id{
-    width: 120px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.col-title{
-    width: 200px;
-}
-.col-owner{
-    width: 120px;
-}
-.col-target{
-    width: 120px;
-}
-.col-progress{
-    width: 100px;
-}
-.col-status{
-    width: 100px;
-}
+  }
+  
+  /* Styling for table rows */
+  #table tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Styling for table cells */
+  #table td {
+    padding: 10px;
+  }
+  
+  /* Styling for table cells in specific columns */
+  .col-id,
+  .col-title,
+  .col-owner,
+  .col-target,
+  .col-progress,
+  .col-status {
+    font-weight: bold;
+  }
+  
+  /* Styling for even rows (alternating row color) */
+  #table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for table rows on hover */
+  #table tr:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  /* Styling for responsive tables on small screens */
+  @media (max-width: 768px) {
+    #table {
+      display: block;
+      overflow-x: auto;
+    }
+    #table th, #table td {
+      white-space: nowrap;
+    }
+  }
+  

@@ -1,0 +1,39 @@
+/* Styling for the custom select */
+.custom-select {
+    appearance: none;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background-color: #ffffff;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Styling for the dropdown arrow */
+  .custom-select::after {
+    content: "\f078"; /* Unicode character for a down arrow () */
+    font-family: FontAwesome;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Styling for the dropdown options */
+  .custom-select option {
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+  }
+  
+  /* Styling for the dropdown when it's open */
+  .custom-select:focus {
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 4px rgba(0, 123, 255, 0.4);
+  }
+  

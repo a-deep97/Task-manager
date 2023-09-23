@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../css/drop-down.css';
 
 function DropDown(props) {
 
@@ -24,8 +25,8 @@ function DropDown(props) {
     const optionsList = createOptions();
 
     return (
-        <select value={props.selectedOption} onChange={handleOnChange}>
-        <option value="">select</option>
+        <select className="custom-select" value={props.selectedOption} onChange={handleOnChange}>
+        <option value="">filter</option>
         {optionsList}
         </select>
     );

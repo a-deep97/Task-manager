@@ -9,6 +9,8 @@ import Projects from "../projects";
 import Tasks from "../tasks";
 import DropDown from './drop-down';
 
+import '../../css/search.css'
+
 function Search(props){
 
     const navigate=useNavigate();
@@ -42,14 +44,15 @@ function Search(props){
     }
 
     return(
-        <form id="search-form" onSubmit={handleSubmit}>
+        <form className="search-bar" onSubmit={handleSubmit}>
             <DropDown options={filterList} onSelect={handleOptionSelect} />
             <input 
                 type="text" 
+                className="search-input"
                 value={searchParam} 
                 onChange={handleChange}
                 placeholder="search"/>
-            <button type="submit">Search</button>
+            <button className="search-button" type="submit">Search</button>
         </form>
     )
 }

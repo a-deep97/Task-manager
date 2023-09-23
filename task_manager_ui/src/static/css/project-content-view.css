@@ -1,69 +1,74 @@
-/* projectView.css */
-
+/* Styling for the project view container */
 .project-view {
-    width: 95%; 
-    height: 95%;
-    padding: 5px; /* Add 5px of padding */
-    background-color: #f9f9f9;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .project-title {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px 5px 0 0;
-  }
-  .project-header {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
 }
 
-  
-  .project-header > div {
-    padding: 5px 10px;
-    margin: 0px 10px;
-    width: 150px;
-    font-weight: bold;
-    border: 2px solid black;
-    border-radius: 5px;
-  }
-  
-  .project-body {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    height: 400px;
-    background-color:blanchedalmond;
-    border: #007BFF;
-    border-radius: 5px;
-  }
-   
-  .project-description {
-    margin: 0;
-    height: 200px;
-  }
+/* Styling for the project title */
+.project-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .activity {
-    display: flex;
-    flex-direction: column;
-    height: 200px; 
-    overflow-y: auto;
-    background-color: black;
-    border-radius: 10px;
+/* Styling for the project header */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
 }
-.activity > h4{
-    padding: 5px;
-    margin: 5px;
-    background-color: beige;
-    border-radius: 5px;
+
+/* Styling for project status */
+.project-status {
+  color: #007bff; /* Blue color for status */
+  font-weight: bold;
 }
-  .project-footer {
-    margin-top: 20px;
-  }
-  
-  /* Add additional styling or customizations as needed */
-  
+
+/* Styling for project owner */
+.project-owner {
+  color: #555; /* Dark gray color for owner */
+}
+
+/* Styling for project body */
+.project-body {
+  margin-bottom: 20px;
+}
+
+/* Styling for project description */
+.project-description {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Styling for the activity section */
+.activity {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Styling for activity header */
+.activity-header {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin: -10px -10px 10px -10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* Styling for activity body */
+.activity-body {
+  padding: 10px;
+}
