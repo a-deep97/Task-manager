@@ -12,6 +12,11 @@
     overflow-y: scroll;
     padding: 10px 10px;
 }
+.search-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
 #content-header{
     display: inherit;
     flex-direction: column;

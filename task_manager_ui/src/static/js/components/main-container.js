@@ -12,7 +12,6 @@ function MainContainer(props) {
     return (
             <div className="main-container">
                 <SidePanel />
-                    
                 <MainView componentToRender={props.componentToRender} data={props.data} onSubmit={props.onSubmit} />
             </div>
     );

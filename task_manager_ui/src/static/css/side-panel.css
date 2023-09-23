@@ -1,78 +1,51 @@
+/* Styling for the side panel container */
+
 .side-panel{
     background-color: var(--code1_color7);
     border-right: 1px solid var(--code1_color3);
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: #f0f0f0; /* Light gray background color */
+    border: 1px solid #ddd;
     border-radius: 5px;
-    display: inherit;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 5px;
-    height: 100%;
-    width: 20%;
-    height: 100%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    height: 90%;
 }
-
-#side-panel-heading{
-    
-    width: 100%;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:x-large;
-    padding: 10px;
-    align-items: center;
-}
-
-.panel-btn{
+ 
+  /* Styling for the side panel heading */
+  #side-panel-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for panel sections */
+  .panel-section {
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for panel buttons */
+  .panel-btn {
+    background-color: #007bff; /* Blue color for buttons */
+    color: #fff;
     border: none;
-    background-color: var(--code1_color6);
-    box-shadow: 1px 1px 1px 1px var(--code1_color3);
     border-radius: 5px;
-    align-items: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: medium;
-    width: 90%;
-    height: 35px;
-}
-#create-task-btn:hover{
-    background-color: var(--code1_color5);
-}
-
-#side-panel-contents{
-    display: inherit;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    margin-top: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.panel-section{
-    display: inherit;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    margin: 10px 0px;
-}
-
-.side-panel-links{
-    display: inherit;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 90%;
-    height: 20px;
-    font-size: medium;
-    align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    border-radius: 5px;
-    margin: 10px 0px;
-}
-.side-panel-links:hover{
-    background-color: #E1D9D1;
-}
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Styling for side panel links */
+  .side-panel-links {
+    font-size: 16px;
+    cursor: pointer;
+    color: #333; /* Dark gray color for links */
+    margin-left: 10px;
+  }
+  
+  /* Styling for side panel links on hover */
+  .side-panel-links:hover {
+    color: #007bff; /* Blue color on hover */
+  }
+  

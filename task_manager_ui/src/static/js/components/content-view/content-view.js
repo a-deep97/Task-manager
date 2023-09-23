@@ -35,7 +35,9 @@ function ContentView(props) {
 
     return (
         <div id="content-view">
-            <Search  componentToRender={props.componentToRender} />
+            <div className='search-container'>
+                <Search  componentToRender={props.componentToRender} />  
+            </div>
             {componentToRender}
         </div>
     );
