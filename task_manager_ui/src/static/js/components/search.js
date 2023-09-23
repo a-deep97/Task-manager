@@ -20,9 +20,8 @@ function Search(props){
             "projects":["id","owner"],
             "tasks":["id", "owner","project"],
         }
-        return filter[props.listtype]
+        return filter[props.componentToRender]
     });
-
     function handleChange(event){
         /** Function to handle changed input values */
         setsearchParam(event.target.value)
@@ -30,11 +29,11 @@ function Search(props){
     function handleSubmit(event){
         /** Function to handle even in search button submit */
         event.preventDefault()
-        if(props.listtype=="projects"){
+        if(props.componentToRender=="projects"){
             const state = {key:filterOption,param:searchParam}
             navigate('/projects',{state})
         }
-        else if(props.listtype=="tasks"){
+        else if(props.componentToRender=="tasks"){
             navigate('/tasks',{state:{key:filterOption,param:searchParam}})
         } 
     }

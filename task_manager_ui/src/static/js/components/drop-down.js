@@ -1,47 +1,34 @@
+import React, { useState } from "react";
 
-/**
- * This component represents a drop down option
- */
+function DropDown(props) {
 
-import { Component } from "react";
+    const [selectedOption, setSelectedOption] = useState(null);
+        
+    const handleOnChange = (event) => {
+        const newSelectedOption = event.target.value;
+        setSelectedOption(newSelectedOption);
+        props.onSelect(newSelectedOption);
+    };
 
-class DropDown extends Component{
-    
-    constructor(props){
-        super(props)
-        this.state={
-            selectedOption:null
+    const createOptions = () => {
+        if (!props.options) {
+        return null;
         }
-        this.HandleOnChange=this.HandleOnChange.bind(this)
-    }
+        return props.options.map((option) => (
+        <option key={option} value={option}>
+            {option}
+        </option>
+        ));
+    };
 
-    HandleOnChange(event){
-        this.setState({selectedOption:event.target.value},()=>{
-            console.log("selected option: ",this.state.selectedOption)
-            // calling callback function as properties to return selected option to form
-            this.props.onSelect(this.state.selectedOption)
-        })
-    }
-    createOptions(){
-        let optionList=[]
-        if(this.props.options==null){
-            return null
-        }
-        for(let i=0;i<this.props.options.length;i++){
-            optionList.push(<option value={this.props.options[i].value}>{this.props.options[i]}</option>)
-        }
-        return optionList
-    }
-    render(){
-        const options_list=this.createOptions()
-        return(
-            <select value={this.state.selectedOption} onChange={this.HandleOnChange}>
-                <option value="">select</option>
-                {options_list}
-            </select>
-        )
-    }
+    const optionsList = createOptions();
 
+    return (
+        <select value={props.selectedOption} onChange={handleOnChange}>
+        <option value="">select</option>
+        {optionsList}
+        </select>
+    );
 }
 
-export default DropDown
+export default DropDown;
