@@ -1,0 +1,10 @@
+/* Style the select options */
+select option {
+    font-size: 16px;
+    padding: 5px;
+    background-color: #fff;
+    color: #333;
+    pointer-events: none;
+  }
+  
+  

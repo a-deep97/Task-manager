@@ -1,5 +1,6 @@
 
 import React from "react";
+import TaskStatusDropdown from '../status-drop-down';
 import '../../../css/project-content-view.css';
 /**
  * Component to show project details in content view
@@ -20,7 +21,7 @@ function ProjectContentView(props){
                 Project {project.id} {project.title}
             </div>
             <div className="project-header">
-                <div className="project-status">{project.status}</div>
+                <div className="project-status"><TaskStatusDropdown/></div>
                 <div className="project-owner">{project.owner}</div>
             </div>
             <div className="project-body">
