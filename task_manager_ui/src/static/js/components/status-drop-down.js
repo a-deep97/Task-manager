@@ -1,38 +1,49 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import '../../css/status-drop-down.css';
 
-function TaskStatusDropdown() {
-  
-    const initialStatus = null
-    const [selectedStatus, setSelectedStatus] = useState(initialStatus);
-    const taskStatus = {
-        PLANNED: "Planned",
-        PROGRESS: "Progress",
-        COMPLETED: "Completed"
-    }
-    // Function to handle the selection of a status
-    const handleStatusChange = (event) => {
-        setSelectedStatus(event.target.value);
-    };
+function TaskStatusDropdown(props) {
+  const handleStatusChange = (event) => {
+    props.setSelectedStatus(event.target.value);
+  };
 
-    // Function to save the selected status (you can replace this with your save logic)
-    const saveStatus = () => {
-        // Replace this with your logic to save the selected status
-        alert(`Selected status: ${selectedStatus} saved!`);
-    };
-    const taskStatuses = ['Planned', 'Progress', 'Completed', 'None'];
-    return (
-        <div >
-        <select value={selectedStatus} onChange={handleStatusChange}>
-            {taskStatuses.map((status) => (
-            <option key={status} value={status}>
-                {status}
-            </option>
-            ))}
-        </select>
-        </div>
-    );
+  // Function to save the selected status (you can replace this with your save logic)
+  const saveStatus = () => {
+    // Replace this with your logic to save the selected status
+    alert(`Selected status: ${props.selectedStatus} saved!`);
+  };
+
+  function getStatusColor(status) {
+    switch (status) {
+      case 'Planned':
+        return 'blue';
+      case 'Progress':
+        return 'green';
+      case 'None':
+        return 'white';
+      case 'Completed':
+        return 'grey';
+      default:
+        return 'white'; // Default color for other statuses
+    }
+  }
+
+  const taskStatuses = ['Planned', 'Progress', 'Completed', 'None'];
+
+  return (
+    <div>
+      <select value={props.selectedStatus} onChange={handleStatusChange} className="custom-dropdown">
+        {taskStatuses.map((status) => (
+          <option
+            key={status}
+            value={status}
+            style={{ backgroundColor: getStatusColor(status) }}
+          >
+            {status}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
 }
 
 export default TaskStatusDropdown;

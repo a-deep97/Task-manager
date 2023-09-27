@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import TaskStatusDropdown from '../status-drop-down';
 import '../../../css/task-content-view.css';
 
 function CreateTaskForm(props) {
   const [title, setTitle] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('None');
   const [owner, setOwner] = useState("");
   const [project, setProject] = useState("");
   const [target, setTarget] = useState("");
@@ -23,6 +24,7 @@ function CreateTaskForm(props) {
       window.alert("Task title cannot be empty")
       return
     }    
+    console.log("form data", formData)
     props.onSubmit(formData)
   };
 
@@ -38,13 +40,7 @@ function CreateTaskForm(props) {
           />
         </div>
         <div className="task-header">
-          <input
-              className="task-status form-field"
-              type="text"
-              placeholder="Status"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-          />
+          <TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} />
           <input
             className="task-owner form-field"
             type="text"

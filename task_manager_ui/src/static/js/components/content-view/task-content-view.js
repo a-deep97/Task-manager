@@ -1,5 +1,5 @@
 
-import React from "react";
+import React , { useState } from "react";
 import TaskStatusDropdown from '../status-drop-down';
 import '../../../css/task-content-view.css';
 /**
@@ -9,20 +9,20 @@ import '../../../css/task-content-view.css';
 
 function TaskContentView(props){
 
+
+    const [status, setStatus] = useState('');
     if(props.taskdata==null){
         console.log("No task data was found")
         return
     }
     const task=props.taskdata;
-    console.log(task)
-     
     return (
         <div className="task-view">
             <div className="task-title">
                 Task {task.id} {task.title}
             </div>
             <div className="task-header">
-                <div className="task-status"><TaskStatusDropdown/></div>
+                <div className="task-status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus}/></div>
                 <div className="task-owner">{task.owner}</div>
                 <div className="task-project">{task.project}</div>
                 <div className="task-target">{task.target}</div>

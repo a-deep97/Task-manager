@@ -1,10 +1,24 @@
-/* Style the select options */
-select option {
-    font-size: 16px;
-    padding: 5px;
+.custom-dropdown {
+    width: 150px; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: #fff;
     color: #333;
-    pointer-events: none;
+    font-size: 14px;
+    cursor: pointer;
   }
   
+  .custom-dropdown option {
+    background-color: #fff; /* Background color for options */
+    color: #333; /* Text color for options */
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .custom-dropdown:hover {
+    border: 1px solid #007BFF; /* Border color on hover */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Shadow on hover */
+  }
   
