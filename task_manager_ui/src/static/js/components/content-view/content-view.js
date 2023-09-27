@@ -3,7 +3,7 @@ import { Component } from 'react';
 import '../../../css/content-view.css';
 import ProjectsListView from './projects-list-view';
 import TaskListView from './tasks-list-view'; 
-import Search from '../search';
+import Filter from '../filter';
 import TaskContentView from './task-content-view';
 import ProjectContentView from './project-content-view';
 import CreateTaskForm from '../forms/create-task-form';
@@ -36,7 +36,7 @@ function ContentView(props) {
     return (
         <div id="content-view">
             <div className='search-container'>
-                <Search  componentToRender={props.componentToRender} />  
+                <Filter  componentToRender={props.componentToRender} />  
             </div>
             {componentToRender}
         </div>

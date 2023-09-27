@@ -19,6 +19,10 @@ function CreateTaskForm(props) {
       target,
       description,
     };
+    if (!formData.title){
+      window.alert("Task title cannot be empty")
+      return
+    }    
     props.onSubmit(formData)
   };
 
@@ -35,28 +39,28 @@ function CreateTaskForm(props) {
         </div>
         <div className="task-header">
           <input
-              className="task-status"
+              className="task-status form-field"
               type="text"
               placeholder="Status"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
           />
           <input
-            className="task-owner"
+            className="task-owner form-field"
             type="text"
             placeholder="Owner"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
           />
           <input
-            className="task-project"
+            className="task-project form-field"
             type="text"
             placeholder="Project"
             value={project}
             onChange={(e) => setProject(e.target.value)}
           />
           <input
-            className="task-target"
+            className="task-target form-field"
             type="text"
             placeholder="Target"
             value={target}
@@ -65,14 +69,12 @@ function CreateTaskForm(props) {
         </div>
         <div className="task-body">
           <textarea
-            className="task-description"
+            className="task-description form-field"
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <div className="form-field">
-            <button type="submit">Save</button>
-          </div>
+          <button type="submit" className="save-btn" >Save</button>
         </div>
     </form>
   )

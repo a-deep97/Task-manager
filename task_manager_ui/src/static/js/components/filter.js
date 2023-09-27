@@ -11,7 +11,7 @@ import DropDown from './drop-down';
 
 import '../../css/search.css'
 
-function Search(props){
+function Filter(props){
 
     const navigate=useNavigate();
     const [searchParam,setsearchParam]=useState('');
@@ -52,9 +52,9 @@ function Search(props){
                 value={searchParam} 
                 onChange={handleChange}
                 placeholder="search"/>
-            <button className="search-button" type="submit">Search</button>
+            <button className="apply-button" type="submit">Apply</button>
         </form>
     )
 }
 
-export default Search;
+export default Filter;
