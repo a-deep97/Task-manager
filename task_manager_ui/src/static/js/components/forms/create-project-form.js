@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import StatusDropdown from '../status-drop-down';
+import DateSelector from "../date-selector";  
 import '../../../css/project-content-view.css';
 
 function CreateProjectForm(props) {
+
+  const today = new Date().toISOString().slice(0, 10);
   const [title, setTitle] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("None");
   const [owner, setOwner] = useState("");
-  const [target, setTarget] = useState("");
+  const [target, setTarget] = useState(today);
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
@@ -17,6 +21,10 @@ function CreateProjectForm(props) {
       target,
       description,
     };
+    if (!formData.title){
+      window.alert("Project title cannot be empty")
+      return
+    } 
     props.onSubmit(formData)
   };
 
@@ -32,38 +40,24 @@ function CreateProjectForm(props) {
           />
         </div>
         <div className="project-header">
+        <StatusDropdown selectedStatus={status} setSelectedStatus={setStatus} />
           <input
-              className="project-status"
-              type="text"
-              placeholder="Status"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-          />
-          <input
-            className="project-owner"
+            className="project-owner form-field"
             type="text"
             placeholder="Owner"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
           />
-          <input
-            className="project-target"
-            type="text"
-            placeholder="Target"
-            value={target}
-            onChange={(e) => setTarget(e.target.value)}
-          />
+          <DateSelector selectedDate={target} setSelectedDate={setTarget} />
         </div>
-        <div className="project-body">
+        <div className="project-body form-field">
           <textarea
-            className="project-description"
+            className="project-description form-field"
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <div className="form-field">
-            <button type="submit">Save</button>
-          </div>
+          <button  type="submit" className="save-btn">Save</button>
         </div>
     </form>
   )

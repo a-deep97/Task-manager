@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../css/status-drop-down.css';
 
-function TaskStatusDropdown(props) {
+function StatusDropdown(props) {
   const handleStatusChange = (event) => {
     props.setSelectedStatus(event.target.value);
   };
@@ -46,4 +46,4 @@ function TaskStatusDropdown(props) {
   );
 }
 
-export default TaskStatusDropdown;
+export default StatusDropdown;

@@ -46,6 +46,7 @@ function CreateProject() {
         });
         
     }
+    console.log(componentToRender)
     return (
         <div id="create-project" className="main-view">
         <Navbar />

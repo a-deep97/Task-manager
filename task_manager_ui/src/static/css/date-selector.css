@@ -1,0 +1,19 @@
+/* DateSelector.css */
+.date-selector-container {
+    display: flex;
+    margin: 0px 10px;
+  }
+  
+  .custom-date-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .selected-date {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  

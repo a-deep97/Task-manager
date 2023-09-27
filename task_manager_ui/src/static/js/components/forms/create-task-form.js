@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import TaskStatusDropdown from '../status-drop-down';
+import StatusDropdown from '../status-drop-down';
+import DateSelector from '../date-selector';
 import '../../../css/task-content-view.css';
 
 function CreateTaskForm(props) {
+
+  const today = new Date().toISOString().slice(0, 10); 
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState('None');
   const [owner, setOwner] = useState("");
   const [project, setProject] = useState("");
-  const [target, setTarget] = useState("");
+  const [target, setTarget] = useState(today);
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
@@ -23,8 +26,7 @@ function CreateTaskForm(props) {
     if (!formData.title){
       window.alert("Task title cannot be empty")
       return
-    }    
-    console.log("form data", formData)
+    }   
     props.onSubmit(formData)
   };
 
@@ -40,7 +42,7 @@ function CreateTaskForm(props) {
           />
         </div>
         <div className="task-header">
-          <TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} />
+          <StatusDropdown selectedStatus={status} setSelectedStatus={setStatus} />
           <input
             className="task-owner form-field"
             type="text"
@@ -55,13 +57,7 @@ function CreateTaskForm(props) {
             value={project}
             onChange={(e) => setProject(e.target.value)}
           />
-          <input
-            className="task-target form-field"
-            type="text"
-            placeholder="Target"
-            value={target}
-            onChange={(e) => setTarget(e.target.value)}
-          />
+         <DateSelector selectedDate={target} setSelectedDate={setTarget} />
         </div>
         <div className="task-body">
           <textarea

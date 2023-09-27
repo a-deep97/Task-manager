@@ -13,12 +13,9 @@
     background-color: #fff; /* Background color for options */
     color: #333; /* Text color for options */
     border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 20px;
   }
   
-  .custom-dropdown:hover {
-    border: 1px solid #007BFF; /* Border color on hover */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Shadow on hover */
-  }
   

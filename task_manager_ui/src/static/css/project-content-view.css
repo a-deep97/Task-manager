@@ -37,6 +37,16 @@
   color: #555; /* Dark gray color for owner */
 }
 
+/* Styling for project project */
+.project-project {
+  color: #ff8c00; /* Dark orange color for project */
+}
+
+/* Styling for project target */
+.project-target {
+  color: #008000; /* Green color for target */
+}
+
 /* Styling for project body */
 .project-body {
   margin-bottom: 20px;
@@ -44,6 +54,7 @@
 
 /* Styling for project description */
 .project-description {
+  height: 200px;
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
@@ -72,3 +83,46 @@
 .activity-body {
   padding: 10px;
 }
+
+/* Styling for input field*/
+.form-field {
+  width: 100%;
+  padding: 10px;
+  margin: 0px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-field::placeholder {
+  color: #aaa;
+}
+
+.form-field:focus {
+  border-color: #007BFF; /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow when focused */
+}
+
+  /* Styling for the Save button */
+  .save-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Styling for the search button on hover */
+  .save-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for search icon */
+  .fa-search {
+    margin-right: 5px;
+  }
