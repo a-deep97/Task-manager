@@ -5,6 +5,9 @@
     margin-top: 20px;
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;    /* Hide any overflowing content */
+    text-overflow: ellipsis; /* Display an ellipsis (...) when text overflows */
+    white-space: nowrap; /* Prevent text from wrapping */
   }
   
   /* Styling for table headers */
@@ -33,6 +36,7 @@
   .col-progress,
   .col-status {
     font-weight: bold;
+    word-wrap: break-word; /* Add this property */
   }
   
   /* Styling for even rows (alternating row color) */

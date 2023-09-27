@@ -26,8 +26,8 @@ function CreateTaskForm(props) {
     if (!formData.title){
       window.alert("Task title cannot be empty")
       return
-    }   
-    props.onSubmit(formData)
+    };
+    props.onSubmit(formData);
   };
 
   return (

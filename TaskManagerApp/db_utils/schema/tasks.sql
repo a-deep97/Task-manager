@@ -5,6 +5,6 @@ CREATE TABLE tasks(
     owner varchar(255) DEFAULT NULL,
     description varchar(255) DEFAULT NULL,
     status varchar(255) DEFAULT NULL,
-    target varchar(255) DEFAULT NULL,
+    target date DEFAULT NULL,
     PRIMARY KEY (id) 
 );

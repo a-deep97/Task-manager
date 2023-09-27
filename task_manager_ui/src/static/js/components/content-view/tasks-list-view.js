@@ -26,13 +26,13 @@ function TaskListView(props) {
             // Create JSX representing the <tr> element and its children
             const rowJSX = (
                 <tr className="task-table-row" key={i} onClick={() => handleRowClick(task.id)} >
-                    <td className="task-row-data">{task.id}</td>
-                    <td className="task-row-data">{task.title}</td>
-                    <td className="task-row-data">{task.owner}</td>
-                    <td className="task-row-data">{task.description}</td>
-                    <td className="task-row-data">{task.status}</td>
-                    <td className="task-row-data">{task.target}</td>
-                    <td className="task-row-data">{task.project}</td>
+                    <td className="row-data">{task.id}</td>
+                    <td className="row-data">{task.title}</td>
+                    <td className="row-data">{task.owner}</td>
+                    <td className="row-data">{task.description}</td>
+                    <td className="row-data">{task.status}</td>
+                    <td className="row-data">{task.target}</td>
+                    <td className="row-data">{task.project}</td>
                 </tr>
             );
 

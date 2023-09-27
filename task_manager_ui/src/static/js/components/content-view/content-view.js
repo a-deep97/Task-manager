@@ -35,9 +35,11 @@ function ContentView(props) {
 
     return (
         <div id="content-view">
-            <div className='search-container'>
-                <Filter  componentToRender={props.componentToRender} />  
-            </div>
+            {(props.componentToRender === 'tasks' || props.componentToRender==="projects") && (
+                <div className='search-container'>
+                    <Filter componentToRender={props.componentToRender} />  
+                </div>
+            )}
             {componentToRender}
         </div>
     );

@@ -53,7 +53,8 @@ def getTaskList(request):
 def createTask(request):
     if request.method == 'POST':
         data = request.data
-        try:  
+        try:
+            print("data:",data)
             res = TaskUtil.create_task(**data)
         except Exception as exc:
             return Response({'error': f'Task could not be created {str(exc)}'}, status=500)

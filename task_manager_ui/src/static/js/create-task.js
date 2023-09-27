@@ -15,14 +15,12 @@ function CreateTask() {
     const location = useLocation();
     const navigate=useNavigate();
     // State to hold the form data
-    const [formData, setFormData] = useState({});
     const componentToRender= "create-task"
          
     function handleFormSubmit(data){
-        setFormData(data);
-        postTaskForm(formData);
+        postTaskForm(data);
     }
-    function postTaskForm(data){
+    function postTaskForm(formData){
         fetch('http://127.0.0.1:8000/task/create', {
             method: 'POST',
             headers: {
@@ -49,7 +47,7 @@ function CreateTask() {
     return (
         <div id="create-task" className="main-view">
         <Navbar />
-        <MainContainer componentToRender={componentToRender} data={null} onSubmit={handleFormSubmit}/>
+        <MainContainer componentToRender={componentToRender}  onSubmit={handleFormSubmit}/>
         <Footer />
         </div>
     );

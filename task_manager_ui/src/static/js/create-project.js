@@ -19,10 +19,9 @@ function CreateProject() {
     const componentToRender= "create-project"
          
     function handleFormSubmit(data){
-        setFormData(data);
-        postTaskForm(formData);
+        postTaskForm(data);
     }
-    function postTaskForm(data){
+    function postTaskForm(formData){
         fetch('http://127.0.0.1:8000/project/create', {
             method: 'POST',
             headers: {
@@ -46,7 +45,6 @@ function CreateProject() {
         });
         
     }
-    console.log(componentToRender)
     return (
         <div id="create-project" className="main-view">
         <Navbar />
