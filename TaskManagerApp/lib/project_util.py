@@ -60,5 +60,7 @@ class ProjectUtil:
         return data
 
     @classmethod
-    def id_to_name(cls,project_id:int):
-        name
+    def get_Name_from_ID(cls,project_id:int):
+        name=None
+        name=Project().ID_to_Name(project_id)
+        return name[0]

@@ -71,3 +71,10 @@ class Project(ModelBase):
             for key , val in clauses:
                 query =query + f" {key}= '{val}'"
         self.update(query,None)
+    
+    def ID_to_Name(self,id:int):
+        query=f"""
+            SELECT title from {self.table}
+            WHERE id= {id}
+        """
+        return self.read(query,None)

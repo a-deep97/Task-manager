@@ -2,6 +2,7 @@
 from typing import Dict
 from TaskManagerApp.db_utils.tasks import Tasks
 from TaskManagerApp.lib.constants.status import Status
+from TaskManagerApp.lib.project_util import ProjectUtil
 
 TASK_ID_KEY="id"
 TASK_TITLE_KEY="title"
@@ -37,10 +38,11 @@ class TaskUtil:
         data=[]
         res=Tasks().query_tasks(key,param)
         for each in res:
+            project=ProjectUtil.get_Name_from_ID(int(each[2]))
             entity={
                 TASK_ID_KEY:each[0],
                 TASK_TITLE_KEY:each[1],
-                PROJET_ID_KEY:each[2],
+                PROJET_ID_KEY:project,
                 OWNER_KEY:each[3],
                 TASK_DESC_KEY:each[4],
                 STATUS_KEY:each[5],
@@ -53,13 +55,15 @@ class TaskUtil:
     def get_task_data(cls,key:str,param:str):
         data={}
         res=Tasks().query_task_data(key,param)
+        project=ProjectUtil.get_Name_from_ID(int(res[2]))
         data={
             TASK_ID_KEY:res[0],
                 TASK_TITLE_KEY:res[1],
-                PROJET_ID_KEY:res[2],
+                PROJET_ID_KEY:project,
                 OWNER_KEY:res[3],
                 TASK_DESC_KEY:res[4],
                 STATUS_KEY:res[5],
                 TARGET_KEY:res[6],
         }
+
         return data
