@@ -82,6 +82,22 @@ def getUserTasks(request):
     res=UserUtil().get_user_tasks(name=name)
     return Response(res)
 
+@api_view(['GET'])
+def getSuggestions(request):
+    suggestions=[]
+    column=request.GET.get('column')
+    table=request.GET.get('table')
+    input_value=request.GET.get('input')
+    if not (column and table and input_value):
+        return
+    if table=="project":
+        suggestions=ProjectUtil().get_list(column,input_value)
+    elif table=="tasks":
+        suggestions=TaskUtil().get_list(column,input_value)
+    else:
+        pass
+    return Response({'suggestions': suggestions})
+    
 @api_view(['GET','POST'])
 def newUser(request):
     data={"emp_id":"1234","name":"aman"}

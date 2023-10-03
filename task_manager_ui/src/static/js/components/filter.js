@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Projects from "../projects";
 import Tasks from "../tasks";
 import DropDown from './drop-down';
+import SearchSuggestions from './search-suggestion';
 
 import '../../css/search.css'
 
@@ -24,7 +25,7 @@ function Filter(props){
         }
         return filter[props.componentToRender]
     });
-    function handleChange(event){
+    function handleInputChange(event){
         /** Function to handle changed input values */
         setsearchParam(event.target.value)
     }
@@ -42,16 +43,10 @@ function Filter(props){
     function handleOptionSelect(option){
         setfilterOption(option)
     }
-
     return(
         <form className="search-bar" onSubmit={handleSubmit}>
             <DropDown options={filterList} onSelect={handleOptionSelect} />
-            <input 
-                type="text" 
-                className="search-input"
-                value={searchParam} 
-                onChange={handleChange}
-                placeholder="search"/>
+            <SearchSuggestions table={props.componentToRender === "projects" ? "project" : "tasks"} column={filterOption} inputValue={searchParam} setinputValue={setsearchParam} />
             <button className="apply-button" type="submit">Apply</button>
         </form>
     )

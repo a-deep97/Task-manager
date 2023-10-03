@@ -2,6 +2,7 @@ from typing import Dict
 from TaskManagerApp.db_utils.project import Project
 from TaskManagerApp.lib.constants.status import Status
 
+TABLE="project"
 PROJECT_TITLE_KEY="title"
 PROJECT_ID_KEY="id"
 PROJECT_DESC_KEY="description"
@@ -64,3 +65,13 @@ class ProjectUtil:
         name=None
         name=Project().ID_to_Name(project_id)
         return name[0]
+
+    @classmethod
+    def get_list(cls,column,input_value):
+        
+        column_list=[]
+        res=Project().get_list(TABLE,column,input_value)
+        print(res)
+        for each in res:
+            column_list.append(each[0])
+        return column_list

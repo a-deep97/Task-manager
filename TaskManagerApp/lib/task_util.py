@@ -4,6 +4,7 @@ from TaskManagerApp.db_utils.tasks import Tasks
 from TaskManagerApp.lib.constants.status import Status
 from TaskManagerApp.lib.project_util import ProjectUtil
 
+TABLE="tasks"
 TASK_ID_KEY="id"
 TASK_TITLE_KEY="title"
 PROJET_ID_KEY="project"
@@ -67,3 +68,13 @@ class TaskUtil:
         }
 
         return data
+    
+    @classmethod
+    def get_list(cls,column,input_value):
+        
+        column_list=[]
+        res=Tasks().get_list(TABLE,column,input_value)
+        print(res)
+        for each in res:
+            column_list.append(each[0])
+        return column_list

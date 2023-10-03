@@ -31,7 +31,14 @@ class ModelBase(object):
     def update(self,query:str,params:List):
         with connection.cursor() as cursor:
             cursor.execute(query,params)
-    
+
+    def get_list(self,table,column,input_value):
+        query=f"""
+        SELECT {column} FROM {table}
+        WHERE {column} like '%{input_value}%'
+        """
+        return self.read_all(query,None)
+
     def delete(self):
         # TODO
         return None
