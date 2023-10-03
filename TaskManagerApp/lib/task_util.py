@@ -39,7 +39,7 @@ class TaskUtil:
         data=[]
         res=Tasks().query_tasks(key,param)
         for each in res:
-            project=ProjectUtil.get_Name_from_ID(int(each[2]))
+            project=None #ProjectUtil.get_Name_from_ID(int(each[2]))
             entity={
                 TASK_ID_KEY:each[0],
                 TASK_TITLE_KEY:each[1],

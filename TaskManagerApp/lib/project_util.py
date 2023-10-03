@@ -34,7 +34,6 @@ class ProjectUtil:
     def get_projects(cls,key:str=None,param:str=None):
         
         data=[]
-       
         res=Project().query_projects(key,param)
         for each in res:
             entity={

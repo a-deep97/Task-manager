@@ -28,8 +28,9 @@ def getProjectList(request):
     param = request.GET.get('param')
     key = None if key=='null' else key
     param = None if param=='null' else param
+
     data = ProjectUtil.get_projects(key=key,param=param)
-    
+    print(f"data:{data}")
     return Response(data)
 
 @api_view(['GET'])

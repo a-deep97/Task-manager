@@ -18,11 +18,13 @@ function ProjectsListView(props) {
      * Function to define project row components
      */
     let projectRows = [];
-    if (props.projectList == null) {
+    if (props.projectlist == null) {
       return null;
     }
-    for (let i = 0; i < props.projectList.length; i++) {
-      const project = props.projectList[i];
+    
+      
+    for (let i = 0; i < props.projectlist.length; i++) {
+      const project = props.projectlist[i];
 
       // Create JSX representing the <tr> element and its children for a project row
       const rowJSX = (
@@ -42,7 +44,7 @@ function ProjectsListView(props) {
   };
 
   const projectRows = listProjects();
-
+  console.log("props",props)
   return (
     <table id="table" className="table">
       <thead>
