@@ -14,5 +14,5 @@ urlpatterns=[
     path('project/create',views.createProject),
     path('suggestions',views.getSuggestions),
     path('status_update',views.update_status),
-    path('new_user',views.newUser)
+    path('target_update',views.update_target),
 ]

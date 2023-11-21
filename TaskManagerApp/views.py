@@ -119,7 +119,21 @@ def update_status(request):
     return Response({'error': 'Invalid request method'}, status=400)
 
 @api_view(['GET','POST'])
-def newUser(request):
-    data={"emp_id":"1234","name":"aman"}
-    res=UserUtil.add_user(**data)
-    return Response(res)
+def update_target(request):
+    if request.method == 'POST':
+        data=request.data
+        target_for=data.get('target_for')
+        target=data.get('target')
+        id=data.get('id') 
+        try:
+            print(data)
+            if target_for=="project":
+                res = ProjectUtil.update_project_target(target,id)
+            else:
+                res = TaskUtil.update_task_target(target,id)
+        except Exception as exc:
+            return Response({'error': f'Could not update target {str(exc)}'}, status=500)
+
+        return Response(res)
+    
+    return Response({'error': 'Invalid request method'}, status=400)

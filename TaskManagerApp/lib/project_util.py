@@ -8,6 +8,7 @@ PROJECT_ID_KEY="id"
 PROJECT_DESC_KEY="description"
 STATUS_KEY="status"
 OWNER_KEY="owner"
+TARGET_KEY="target"
 
 class ProjectUtil:
     
@@ -35,6 +36,7 @@ class ProjectUtil:
         
         data=[]
         res=Project().query_projects(key,param)
+        print(res)
         for each in res:
             entity={
                 PROJECT_ID_KEY:each[0],
@@ -42,6 +44,7 @@ class ProjectUtil:
                 PROJECT_DESC_KEY:each[2],
                 STATUS_KEY:each[3],
                 OWNER_KEY:each[4],
+                TARGET_KEY:each[5],
             }
             data.append(entity)
         return data
@@ -56,6 +59,7 @@ class ProjectUtil:
                 PROJECT_DESC_KEY:res[2],
                 STATUS_KEY:res[3],
                 OWNER_KEY:res[4],
+                TARGET_KEY:res[5]
         }
         return data
 
@@ -77,3 +81,8 @@ class ProjectUtil:
     @classmethod
     def update_project_status(cls,status:str,id:int):
         return Project().update_status( Status[status],id)    
+    
+    @classmethod
+    def update_project_target(cls,target:str,id:int):
+        print(target,id)
+        return Project().update_target(target,id)

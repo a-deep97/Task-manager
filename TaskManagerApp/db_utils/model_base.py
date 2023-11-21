@@ -42,3 +42,15 @@ class ModelBase(object):
     def delete(self):
         # TODO
         return None
+    
+    def update_target(self,table,target,id):
+        query=f"""
+        UPDATE {table}
+        SET
+        target = '{target}'
+        WHERE
+        id = {id}
+        """
+        print(query)
+        self.update(query,None)
+        return target

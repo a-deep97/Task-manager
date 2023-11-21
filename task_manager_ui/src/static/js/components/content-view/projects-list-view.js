@@ -34,6 +34,7 @@ function ProjectsListView(props) {
           <td className="project-row-data">{project.description}</td>
           <td className="project-row-data">{project.status}</td>
           <td className="project-row-data">{project.owner}</td>
+          <td className="project-row-data">{project.target}</td>
         </tr>
       );
 

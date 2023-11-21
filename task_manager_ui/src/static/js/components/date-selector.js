@@ -3,8 +3,10 @@ import '../../css/date-selector.css';
 
 function DateSelector(props) {
   
-
     const handleDateChange = (date) => {
+        if(props.saveSelectedDate){
+            props.saveSelectedDate(date)
+        }
         props.setSelectedDate(date);
     };
 

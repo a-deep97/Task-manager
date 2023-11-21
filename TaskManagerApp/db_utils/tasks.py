@@ -80,3 +80,6 @@ class Tasks(ModelBase):
         """
         self.update(query,None)
         return status.name
+    
+    def update_target(self,target,id):
+        return super().update_target(self.table,target,id)

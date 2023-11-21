@@ -81,3 +81,7 @@ class TaskUtil:
     @classmethod
     def update_task_status(cls,status:str,id:int):
         return Tasks().update_status( Status[status],id)
+
+    @classmethod
+    def update_task_target(cls,target:str,id:int):
+        return Tasks().update_target(target,id)
