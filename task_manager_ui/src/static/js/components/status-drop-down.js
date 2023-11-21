@@ -3,14 +3,43 @@ import '../../css/status-drop-down.css';
 
 function StatusDropdown(props) {
   const handleStatusChange = (event) => {
+    saveStatus(event.target.value,props.status_for,props.for_id)
     props.setSelectedStatus(event.target.value);
   };
 
   // Function to save the selected status (you can replace this with your save logic)
-  const saveStatus = () => {
+  const saveStatus = (status,status_for,for_id) => {
     // Replace this with your logic to save the selected status
-    alert(`Selected status: ${props.selectedStatus} saved!`);
+    //alert(`Selected status: ${status} saved!`);
+    postStatusUpdate({
+      "status":status,
+      "status_for":status_for,
+      "id":for_id
+    })
   };
+  function postStatusUpdate(formData){
+    fetch('http://127.0.0.1:8000/status_update', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // Specify the content type as JSON
+        },
+        body: JSON.stringify(formData), // Convert the form data to JSON
+        })
+        .then((response) => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log('Response from server:', data);
+        })
+        .catch((error) => {
+            console.error('There was a problem with the fetch operation:', error);
+            window.alert("Progress Status could not be updated :( \n\n "+ error.message)
+    });
+    
+}
 
   function getStatusColor(status) {
     switch (status) {

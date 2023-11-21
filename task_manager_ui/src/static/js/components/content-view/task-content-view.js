@@ -22,7 +22,7 @@ function TaskContentView(props){
                 Task {task.id} {task.title}
             </div>
             <div className="task-header">
-                <div className="task-status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus}/></div>
+                <div className="task-status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} status_for="task" for_id={props.taskdata.id}/></div>
                 <div className="task-owner">{task.owner}</div>
                 <div className="task-project">{task.project}</div>
                 <div className="task-target">{task.target}</div>

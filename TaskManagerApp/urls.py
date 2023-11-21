@@ -13,5 +13,6 @@ urlpatterns=[
     path('task/create',views.createTask),
     path('project/create',views.createProject),
     path('suggestions',views.getSuggestions),
+    path('status_update',views.update_status),
     path('new_user',views.newUser)
 ]

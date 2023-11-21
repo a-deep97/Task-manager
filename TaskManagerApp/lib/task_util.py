@@ -74,7 +74,10 @@ class TaskUtil:
         
         column_list=[]
         res=Tasks().get_list(TABLE,column,input_value)
-        print(res)
         for each in res:
             column_list.append(each[0])
         return column_list
+
+    @classmethod
+    def update_task_status(cls,status:str,id:int):
+        return Tasks().update_status( Status[status],id)

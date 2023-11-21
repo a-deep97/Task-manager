@@ -7,7 +7,6 @@ select * from project
 """
 base=ModelBase()
 data=base.read(sql)
-print(data)
 """
 proj=Project()
 

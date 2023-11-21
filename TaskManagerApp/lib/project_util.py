@@ -70,7 +70,10 @@ class ProjectUtil:
         
         column_list=[]
         res=Project().get_list(TABLE,column,input_value)
-        print(res)
         for each in res:
             column_list.append(each[0])
         return column_list
+    
+    @classmethod
+    def update_project_status(cls,status:str,id:int):
+        return Project().update_status( Status[status],id)    

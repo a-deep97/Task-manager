@@ -30,7 +30,6 @@ def getProjectList(request):
     param = None if param=='null' else param
 
     data = ProjectUtil.get_projects(key=key,param=param)
-    print(f"data:{data}")
     return Response(data)
 
 @api_view(['GET'])
@@ -38,7 +37,6 @@ def getTaskDetail(request):
     key = request.GET.get('key')
     param = request.GET.get('param')
     data=TaskUtil.get_task_data(key=key,param=param)
-    print(data)
     return Response(data)
 
 @api_view(['GET'])
@@ -55,7 +53,6 @@ def createTask(request):
     if request.method == 'POST':
         data = request.data
         try:
-            print("data:",data)
             res = TaskUtil.create_task(**data)
         except Exception as exc:
             return Response({'error': f'Task could not be created {str(exc)}'}, status=500)
@@ -99,6 +96,28 @@ def getSuggestions(request):
         pass
     return Response({'suggestions': suggestions})
     
+@api_view(['GET','POST'])
+def update_status(request):
+
+    if request.method == 'POST':
+        data=request.data
+        status_for=data.get('status_for')
+        status=data.get('status')
+        if status=="None":
+            status="Unknown"
+        id=data.get('id') 
+        try:
+            if status_for=="project":
+                res = ProjectUtil.update_project_status(status,id)
+            else:
+                res = TaskUtil.update_task_status(status,id)
+        except Exception as exc:
+            return Response({'error': f'Could not update status {str(exc)}'}, status=500)
+
+        return Response(res)
+    
+    return Response({'error': 'Invalid request method'}, status=400)
+
 @api_view(['GET','POST'])
 def newUser(request):
     data={"emp_id":"1234","name":"aman"}

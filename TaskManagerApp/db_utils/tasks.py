@@ -69,3 +69,14 @@ class Tasks(ModelBase):
             for key , val in clauses:
                 query =query + f" {key}= '{val}'"
         self.update(query,None)
+    
+    def update_status(self,status,id):
+        query=f"""
+            UPDATE {self.table}
+            SET
+            status = '{status.name}'
+            WHERE
+            id = {id}
+        """
+        self.update(query,None)
+        return status.name

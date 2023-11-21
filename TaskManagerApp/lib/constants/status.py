@@ -3,7 +3,7 @@ from enum import Enum
 
 class Status(Enum):
     Unknown=0
-    InProgress=1
-    Blocked=2
-    Closed=3
-    Abandoned=4
+    Planned=1
+    Progress=2
+    Blocked=3
+    Completed=4
