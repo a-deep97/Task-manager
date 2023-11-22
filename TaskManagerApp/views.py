@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from TaskManagerApp.db_utils.task_activities import TaskActivities
 from TaskManagerApp.lib.project_util import ProjectUtil
 
 from TaskManagerApp.lib.task_util import TaskUtil
@@ -137,3 +138,26 @@ def update_target(request):
         return Response(res)
     
     return Response({'error': 'Invalid request method'}, status=400)
+
+
+@api_view(['GET','POST'])
+def createComment(request):
+    if request.method == 'POST':
+        data=request.data 
+        try:
+            res=TaskActivities.create_comment(**data)
+        except Exception as exc:
+            return Response({'error': f'Could not update target {str(exc)}'}, status=500)
+
+        return Response(res)
+    
+    return Response({'error': 'Invalid request method'}, status=400)
+
+@api_view(['GET'])
+def getActivities(request):
+    task_id=request.GET.get("task_id")
+    try:
+        res = TaskActivities.get_activities(task_id)
+    except Exception as exc:
+        return Response({'error': f'Could not fetch activities {str(exc)}'}, status=500)
+    return Response(res)

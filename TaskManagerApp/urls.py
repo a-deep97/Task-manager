@@ -15,4 +15,6 @@ urlpatterns=[
     path('suggestions',views.getSuggestions),
     path('status_update',views.update_status),
     path('target_update',views.update_target),
+    path('task/activities/create',views.createComment),
+    path('task/activities/list',views.getActivities)
 ]
