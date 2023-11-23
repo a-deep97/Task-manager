@@ -1,0 +1,32 @@
+/* ActivityStyles.css */
+
+.activity-entity {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .activity-info {
+    flex: 1;
+  }
+  
+  .delete-option {
+    cursor: pointer;
+    color: #cc0000;
+  }
+  
+  .activity-list {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .activity-component {
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
