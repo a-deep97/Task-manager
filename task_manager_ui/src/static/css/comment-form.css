@@ -1,0 +1,29 @@
+.comment-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .comment-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+  }
+  
+  .comment-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .comment-form button:hover {
+    background-color: #0056b3;
+  }
+  

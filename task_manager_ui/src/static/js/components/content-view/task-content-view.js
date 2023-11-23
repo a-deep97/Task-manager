@@ -1,6 +1,7 @@
 
 import React , { useState } from "react";
 import TaskStatusDropdown from '../status-drop-down';
+import CreateCommentForm from '../forms/create-comment-form';
 import DateSelector from '../date-selector';
 import '../../../css/task-content-view.css';
 /**
@@ -65,14 +66,10 @@ function TaskContentView(props){
                     <h4 className="activity-header">
                         comments and activity
                     </h4>
-                    <div className="activity-body">
-
-                    </div>
+                    <div className="activity-body"><CreateCommentForm/></div>
                 </div>
             </div>
         </div>
     );
 };
-
-
 export default TaskContentView;

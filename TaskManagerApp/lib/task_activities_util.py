@@ -9,6 +9,7 @@ TABLE="TaskActivities"
 TASK_ID_KEY="task_id"
 COMMENT_KEY="comment"
 ACTIVITY_KEY="activity"
+AUTHOR_KEY="author"
 ACTIVITY_DATE_KEY="activity_date"
 ACTIVITY_TIME_KEY="activity_time"
 
@@ -24,6 +25,7 @@ class TaskActivitiesUtil:
         params={
                 "task_id":kwargs.get("task_id"),
                 "comment": kwargs.get("comment"),
+                "author": kwargs.get("author"),
                 "activity_date":kwargs.get("activity_date"),
                 "activity_time":kwargs.get("activity_time")
             }
@@ -41,6 +43,7 @@ class TaskActivitiesUtil:
             entity={
                 COMMENT_KEY:each[2],
                 ACTIVITY_KEY:each[3],
+                AUTHOR_KEY:each[4],
                 ACTIVITY_DATE_KEY:each[6],
                 ACTIVITY_TIME_KEY:each[7]
             }

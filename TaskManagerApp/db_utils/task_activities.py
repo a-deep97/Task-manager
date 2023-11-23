@@ -13,6 +13,7 @@ class TaskActivities(ModelBase):
                 task_id:int,
                 comment:str="",
                 activity:str="",
+                author:str="",
                 activity_date:str="",
                 activity_time:str="",
         ):
@@ -20,15 +21,16 @@ class TaskActivities(ModelBase):
         self.task_id=task_id
         self.comment=comment
         self.activity=activity
+        self.author=author
         self.activity_date=activity_date
         self.activity_time=activity_time
 
     def create_comment(self):
-        params=[self.task_id,self.comment,self.activity_date,self.activity_time]
+        params=[self.task_id,self.comment,self.author,self.activity_date,self.activity_time]
         query=f"""
             INSERT INTO {self.table}
-            (task_id,comment,activity_date,activity_time)
-            VALUES (%d,%s,%s,%s)
+            (task_id,comment,author,activity_date,activity_time)
+            VALUES (%d,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
         return 
