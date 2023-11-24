@@ -42,7 +42,7 @@ function CreateTaskForm(props) {
           />
         </div>
         <div className="task-header">
-          <StatusDropdown selectedStatus={status} setSelectedStatus={setStatus} />
+          <StatusDropdown selectedStatus={status} setSelectedStatus={setStatus} update_status={false}/>
           <input
             className="task-owner form-field"
             type="text"

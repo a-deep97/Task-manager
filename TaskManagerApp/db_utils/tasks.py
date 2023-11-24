@@ -13,7 +13,7 @@ class Tasks(ModelBase):
     
     def initiate(self,
                 title:str,
-                project:str,
+                project:int,
                 owner:str="",
                 description:str="",
                 status:Status=Status.Unknown.name,
@@ -33,7 +33,7 @@ class Tasks(ModelBase):
             VALUES (%s,%s,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
-    
+         
     def query_tasks(self,key:str, param:str):
         query=f"""
             SELECT * FROM {self.table}

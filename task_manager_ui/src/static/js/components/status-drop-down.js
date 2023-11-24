@@ -3,7 +3,10 @@ import '../../css/status-drop-down.css';
 
 function StatusDropdown(props) {
   const handleStatusChange = (event) => {
-    saveStatus(event.target.value,props.status_for,props.for_id)
+    console.log(props)
+    if (props.update_status==true){
+      saveStatus(event.target.value,props.status_for,props.for_id)
+    }
     props.setSelectedStatus(event.target.value);
   };
 

@@ -21,9 +21,10 @@ class TaskUtil:
     @classmethod
     def create_task(cls,**kwargs):
         task=Tasks()
+        project=0
         params={
             "title":kwargs.get("title","Unknown title"),
-            "project":kwargs.get("project"),
+            "project":project,
             "owner":kwargs.get("owner"),
             "description":kwargs.get("description"),
             "status":kwargs.get("status",Status.Unknown.name),
@@ -56,11 +57,11 @@ class TaskUtil:
     def get_task_data(cls,key:str,param:str):
         data={}
         res=Tasks().query_task_data(key,param)
-        project=ProjectUtil.get_Name_from_ID(int(res[2]))
+        #project=ProjectUtil.get_Name_from_ID(int(res[2]))
         data={
             TASK_ID_KEY:res[0],
                 TASK_TITLE_KEY:res[1],
-                PROJET_ID_KEY:project,
+                PROJET_ID_KEY:None,
                 OWNER_KEY:res[3],
                 TASK_DESC_KEY:res[4],
                 STATUS_KEY:res[5],

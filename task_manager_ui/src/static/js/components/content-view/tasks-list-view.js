@@ -49,8 +49,8 @@ function TaskListView(props) {
             <tr id="table-row">
             <th className="col-id">Task ID</th>
             <th className="col-title">Title</th>
-            <th className="col-description">Owner</th>
-            <th className="col-owner">Description</th>
+            <th className="col-owner">Owner</th>
+            <th className="col-description">Description</th>
             <th className="col-status">Status</th>
             <th className="col-target">Target</th>
             <th className="col-project">Project</th>

@@ -1,5 +1,5 @@
 
-import React , { useState } from "react";
+import React , { useEffect, useState } from "react";
 import TaskStatusDropdown from '../status-drop-down';
 import CreateCommentForm from '../forms/create-comment-form';
 import DateSelector from '../date-selector';
@@ -13,11 +13,16 @@ import '../../../css/task-content-view.css';
 function TaskContentView(props){
 
 
-    const [status, setStatus] = useState('');
-    const [target,setTarget] = useState('')
+    const [status, setStatus] = useState(null);
+    const [target,setTarget] = useState('');
+    
     if(props.taskdata==null){
         console.log("No task data was found")
         return
+    }
+    
+    if(status==null){
+        setStatus(props.taskdata.status)
     }
     function update_task_target(date){
         const formData={
@@ -46,31 +51,31 @@ function TaskContentView(props){
             window.alert("Target could not be updated :( \n\n "+ error.message)
     });
     }
-    const task=props.taskdata;
-    
     return (
         <div className="task-view">
-            <div className="task-title">
-                Task {task.id} {task.title}
-            </div>
-            <div className="task-header">
-                <div className="task-status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} status_for="task" for_id={props.taskdata.id}/></div>
-                <div className="task-owner">{task.owner}</div>
-                <div className="task-project">{task.project}</div>
-                <div className="task-target"><DateSelector selectedDate ={target?target:task.target} setSelectedDate={setTarget} saveSelectedDate={update_task_target}/></div>
-            </div>
-            <div className="task-body">
-                <div className="task-description">
-                    {task.description}
+            <div className="task-info">
+                <div className="task-title">
+                    Task {props.taskdata.id} {props.taskdata.title}
                 </div>
-                <div className="activity">
-                    <h4 className="activity-header">
-                        comments and activity
-                    </h4>
-                    <ActivityView/>
+                <div className="task-header">
+                    <div className="task-status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} status_for="task" for_id={props.taskdata.id} update_status={true}/></div>
+                    <div className="task-owner">{props.taskdata.owner}</div>
+                    <div className="task-project">{props.taskdata.project}</div>
+                    <div className="task-target"><DateSelector selectedDate ={target?target:props.taskdata.target} setSelectedDate={setTarget} saveSelectedDate={update_task_target}/></div>
+                </div>
+                <div className="task-body">
+                    <div className="task-description">
+                        {props.taskdata.description}
+                    </div>
                 </div>
             </div>
+            <div className="activity">
+                <h4 className="activity-header">
+                    comments and activity
+                </h4>
+            <ActivityView task_id = {props.taskdata.id}/>
         </div>
+ </div>
     );
 };
 export default TaskContentView;

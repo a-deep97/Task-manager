@@ -10,25 +10,51 @@ function CreateCommentForm(props){
   function handleSubmit(e){
     e.preventDefault();
 
-    // Create a comment object with input values
+    // Create a comment dict with input values
+    const now = new Date();
+    const date = now.toISOString().slice(0,10);
+    const time = now.toISOString().slice(11,19);
     const newComment = {
-      author: author,
-      comment: comment,
-      // You might include other fields like timestamp, postId, etc.
+      "author": author,
+      "comment": comment,
+      "task_id": props.task_id,
+      "activity_date": date,
+      "activity_time": time,
     };
 
     // Call the onCommentSubmit function defined within the component
-    onCommentSubmit(newComment);
-
+    onCommentSubmit(newComment)
     // Clear the form after submission
     setAuthor('');
     setComment('');
   };
 
   // Define the onCommentSubmit function within the component
-  function onCommentSubmit(comment){
-    // TODO: Implement the logic to handle the submission of the comment
-    console.log('Comment submitted:', comment);
+  function onCommentSubmit(newComment){
+    fetch('http://127.0.0.1:8000/task/activities/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // Specify the content type as JSON
+        },
+        body: JSON.stringify(newComment), // Convert the form data to JSON
+        })
+        .then((response) => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log('Response from server:', data);
+            // Calling the parent submit event
+            props.onCommentSubmit()
+        })
+        .catch((error) => {
+            console.error('There was a problem with the fetch operation:', error);
+            window.alert("Comment could not be Added :( \n\n "+ error.message)
+    });
+
+    
   };
 
   return (

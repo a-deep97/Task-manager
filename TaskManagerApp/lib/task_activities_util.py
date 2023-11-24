@@ -30,7 +30,7 @@ class TaskActivitiesUtil:
                 "activity_time":kwargs.get("activity_time")
             }
         comment.initiate(
-            params
+            **params
         )
         comment.create_comment()
         return params

@@ -30,10 +30,10 @@ class TaskActivities(ModelBase):
         query=f"""
             INSERT INTO {self.table}
             (task_id,comment,author,activity_date,activity_time)
-            VALUES (%d,%s,%s,%s,%s)
+            VALUES (%s,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
-        return 
+        return params
     
     def get_top_order(self,task_id):
 

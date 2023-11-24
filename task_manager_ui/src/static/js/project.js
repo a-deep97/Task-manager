@@ -15,7 +15,7 @@ function Project() {
     const location = useLocation();
     const [projectdetail, setProjectDetail] = useState(null);
     const {key=null , param=null} = location.state || {};
-    const componentToRender= "project"
+    const componentToRender = "project"
 
     useEffect(() => {
         projectData();

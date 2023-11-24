@@ -65,10 +65,13 @@ class ProjectUtil:
 
     @classmethod
     def get_Name_from_ID(cls,project_id:int):
-        name=None
+        
+        if project_id==0:
+            return None
         name=Project().ID_to_Name(project_id)
-        return name[0]
-
+        
+        return name
+    
     @classmethod
     def get_list(cls,column,input_value):
         
