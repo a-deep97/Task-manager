@@ -30,10 +30,8 @@ function SidePanel(props){
     return(
             <div className="side-panel">
                 <div id="side-panel-heading">Tasks</div>
-                <div className="panel-section">
-                    <CustomButton onClick={() => handleSubmit('create-task')} value="Create Task"/>
-                    <CustomButton onClick={() => handleSubmit('create-project')} value="Create Project"/>
-                </div>
+                <CustomButton onClick={() => handleSubmit('create-task')} value="Create Task"/>
+                <CustomButton onClick={() => handleSubmit('create-project')} value="Create Project"/>
                 <hr></hr>
                 <div className="panel-section">
                     <div id="my-tasks" className="side-panel-links" onClick={() => handleSubmit("tasks")}>My Tasks</div>

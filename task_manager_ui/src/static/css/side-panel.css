@@ -24,7 +24,10 @@
   /* Styling for panel sections */
   .panel-section {
     display: flex;
-    justify-content: center;
+    background-color: #fff;
+    height: 90%;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
     margin-bottom: 10px;
     margin-top: 10px;

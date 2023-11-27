@@ -2,8 +2,9 @@
 import React , { useState } from "react";
 import TaskStatusDropdown from '../status-drop-down';
 import DateSelector from '../date-selector';
+import ActivityView from '../content-view/activity-view';
 import { useNavigate } from 'react-router-dom';
-import '../../../css/project-content-view.css';
+import '../../../css/content-view.css';
 /**
  * Component to show project details in content view
  */
@@ -47,28 +48,26 @@ function ProjectContentView(props){
     }
     const project=props.projectdata;
     return (
-        <div className="project-view">
-            <div className="project-title">
-                Project {project.id} {project.title}
-            </div>
-            <div className="project-header">
-                <div className="project-status"><TaskStatusDropdown  selectedStatus={status} setSelectedStatus={setStatus} status_for="project" for_id={props.projectdata.id}/></div>
-                <div className="project-owner">{project.owner}</div>
-                <div className="project-target"><DateSelector selectedDate ={target?target:project.target} setSelectedDate={setTarget} saveSelectedDate={update_project_target}/></div>
-            </div>
-            <div className="project-body">
-                <div className="project-description">
-                    <div dangerouslySetInnerHTML={{ __html: props.projectdata.description }}/>
+        <div className="view">
+            <div className="info">
+                <div className="title">Project {project.id} {project.title}</div>
+                <div className="header">
+                    <div className="status"><TaskStatusDropdown  selectedStatus={status} setSelectedStatus={setStatus} status_for="project" for_id={props.projectdata.id}/></div>
+                    <div className="owner">{project.owner}</div>
+                    <div className="target"><DateSelector selectedDate ={target?target:project.target} setSelectedDate={setTarget} saveSelectedDate={update_project_target}/></div>
                 </div>
-                <div className="activity">
-                    <h4 className="activity-header">
-                        comments and activity
-                    </h4>
-                    <div className="activity-body">
-
+                <div className="body">
+                    <div className="description">
+                        <div dangerouslySetInnerHTML={{ __html: props.projectdata.description }}/>
                     </div>
                 </div>
             </div>
+            <div className="activity">
+                <h4 className="activity-header">
+                    comments and activity
+                </h4>
+                <ActivityView id = {props.projectdata.id}/>
+            </div>            
         </div>
     );
 };

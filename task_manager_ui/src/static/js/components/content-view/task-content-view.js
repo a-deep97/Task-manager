@@ -4,7 +4,7 @@ import TaskStatusDropdown from '../status-drop-down';
 import CreateCommentForm from '../forms/create-comment-form';
 import DateSelector from '../date-selector';
 import ActivityView from '../content-view/activity-view';
-import '../../../css/task-content-view.css';
+import '../../../css/content-view.css';
 /**
  * Component to show task details in content view
  */
@@ -52,19 +52,19 @@ function TaskContentView(props){
     });
     }
     return (
-        <div className="task-view">
-            <div className="task-info">
-                <div className="task-title">
+        <div className="view">
+            <div className="info">
+                <div className="title">
                     Task {props.taskdata.id} {props.taskdata.title}
                 </div>
-                <div className="task-header">
-                    <div className="task-status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} status_for="task" for_id={props.taskdata.id} update_status={true}/></div>
-                    <div className="task-owner">{props.taskdata.owner}</div>
-                    <div className="task-project">{props.taskdata.project}</div>
-                    <div className="task-target"><DateSelector selectedDate ={target?target:props.taskdata.target} setSelectedDate={setTarget} saveSelectedDate={update_task_target}/></div>
+                <div className="header">
+                    <div className="status"><TaskStatusDropdown selectedStatus={status} setSelectedStatus={setStatus} status_for="task" for_id={props.taskdata.id} update_status={true}/></div>
+                    <div className="owner">{props.taskdata.owner}</div>
+                    <div className="project">{props.taskdata.project}</div>
+                    <div className="target"><DateSelector selectedDate ={target?target:props.taskdata.target} setSelectedDate={setTarget} saveSelectedDate={update_task_target}/></div>
                 </div>
-                <div className="task-body">
-                    <div className="task-description">
+                <div className="body">
+                    <div className="description">
                         <div dangerouslySetInnerHTML={{ __html: props.taskdata.description }}/>
                     </div>
                 </div>
