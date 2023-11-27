@@ -58,7 +58,7 @@ function ProjectContentView(props){
             </div>
             <div className="project-body">
                 <div className="project-description">
-                    {project.description}
+                    <div dangerouslySetInnerHTML={{ __html: props.projectdata.description }}/>
                 </div>
                 <div className="activity">
                     <h4 className="activity-header">

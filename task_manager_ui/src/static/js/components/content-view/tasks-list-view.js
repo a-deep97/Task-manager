@@ -29,7 +29,7 @@ function TaskListView(props) {
                     <td className="row-data">{task.id}</td>
                     <td className="row-data">{task.title}</td>
                     <td className="row-data">{task.owner}</td>
-                    <td className="row-data">{task.description}</td>
+                    <td className="row-data">{task.description.replace(/<[^>]*>/g, '')}</td>
                     <td className="row-data">{task.status}</td>
                     <td className="row-data">{task.target}</td>
                     <td className="row-data">{task.project}</td>

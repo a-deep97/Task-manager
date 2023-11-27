@@ -1,6 +1,6 @@
 
 
-import '../../../css/utilities.css';
+import '../../../css/utilities/utilities.css';
 
 
 function CustomButton(props){

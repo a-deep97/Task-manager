@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StatusDropdown from '../status-drop-down';
-import DateSelector from "../date-selector";  
+import DateSelector from "../date-selector";
+import TextBox from "../utilities/text-box";  
 import '../../../css/form-view.css';
 
 function CreateProjectForm(props) {
@@ -52,12 +53,7 @@ function CreateProjectForm(props) {
           <DateSelector selectedDate={target} setSelectedDate={setTarget} />
         </div>
         <div className="body">
-          <textarea
-            className="description form-field"
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+          <TextBox className ="description" text={description} setText={setDescription}/>
           <button  type="submit" className="save-btn">Save</button>
         </div>
       </div>

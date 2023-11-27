@@ -65,7 +65,7 @@ function TaskContentView(props){
                 </div>
                 <div className="task-body">
                     <div className="task-description">
-                        {props.taskdata.description}
+                        <div dangerouslySetInnerHTML={{ __html: props.taskdata.description }}/>
                     </div>
                 </div>
             </div>
