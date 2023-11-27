@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StatusDropdown from '../status-drop-down';
 import DateSelector from '../date-selector';
-import '../../../css/task-content-view.css';
+import '../../../css/form-view.css'
 
 function CreateTaskForm(props) {
 
@@ -31,27 +31,28 @@ function CreateTaskForm(props) {
   };
 
   return (
-    <form className="task-view" onSubmit={handleSubmit}>
-        <div className="task-title" >
+    <form className="view" onSubmit={handleSubmit}>
+      <div className="info">
+        <div className="title" >
           <input
           className="form-field"
             type="text"
-            placeholder="Title"
+            placeholder="Give it a title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div className="task-header">
+        <div className="header">
           <StatusDropdown selectedStatus={status} setSelectedStatus={setStatus} update_status={false}/>
           <input
-            className="task-owner form-field"
+            className="owner form-field"
             type="text"
             placeholder="Owner"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
           />
           <input
-            className="task-project form-field"
+            className="project form-field"
             type="text"
             placeholder="Project"
             value={project}
@@ -59,15 +60,16 @@ function CreateTaskForm(props) {
           />
          <DateSelector selectedDate={target} setSelectedDate={setTarget} />
         </div>
-        <div className="task-body">
+        <div className="body">
           <textarea
-            className="task-description form-field"
+            className="description form-field"
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <button type="submit" className="save-btn" >Save</button>
         </div>
+      </div>
     </form>
   )
 }
