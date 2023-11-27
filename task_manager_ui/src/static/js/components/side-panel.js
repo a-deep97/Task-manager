@@ -1,6 +1,6 @@
 import { Component } from "react";
-import { useNavigate } from 'react-router-dom';
-
+import { Form, useNavigate } from 'react-router-dom';
+import CustomButton from "./utilities/button"; 
 import '../../css/side-panel.css'
 
 /*
@@ -11,6 +11,7 @@ function SidePanel(props){
 
     const navigate=useNavigate();
     function handleSubmit(navigateTO){
+        
         /** Function to handle click event on side panel lists */
         if (navigateTO==="projects"){
             navigate('/projects/',{param:null,key:null})
@@ -30,11 +31,12 @@ function SidePanel(props){
             <div className="side-panel">
                 <div id="side-panel-heading">Tasks</div>
                 <div className="panel-section">
-                    <button id="create-task-btn" className="panel-btn"  onClick={() => handleSubmit("create-task")}> Create Task</button>
-                    <div id="my-tasks" className="side-panel-links" onClick={() => handleSubmit("tasks")}>My Tasks</div>
+                    <CustomButton onClick={() => handleSubmit('create-task')} value="Create Task"/>
+                    <CustomButton onClick={() => handleSubmit('create-project')} value="Create Project"/>
                 </div>
+                <hr></hr>
                 <div className="panel-section">
-                <button id="create-project-btn" className="panel-btn" onClick={() => handleSubmit("create-project")}> Create Project</button>
+                    <div id="my-tasks" className="side-panel-links" onClick={() => handleSubmit("tasks")}>My Tasks</div>
                     <div id="my-projects" className="side-panel-links" onClick={() => handleSubmit("projects")}>My Projects</div>
                 </div>
             </div>

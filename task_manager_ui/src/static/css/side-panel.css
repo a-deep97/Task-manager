@@ -23,13 +23,18 @@
   
   /* Styling for panel sections */
   .panel-section {
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
   
   /* Styling for panel buttons */
   .panel-btn {
     background-color: #007bff; /* Blue color for buttons */
     color: #fff;
+    margin: 10px;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -38,7 +43,7 @@
   
   /* Styling for side panel links */
   .side-panel-links {
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     color: #333; /* Dark gray color for links */
     margin-left: 10px;
