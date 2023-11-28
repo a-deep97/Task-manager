@@ -1,6 +1,14 @@
 CREATE TABLE users(
-    id int NOT NULL AUTO_INCREMENT,
-    emp_id varchar(255) DEFAULT NULL,
-    name varchar(255) DEFAULT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    user_name VARCHAR(150) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(256) UNIQUE NOT NULL,
+    password VARCHAR(128) NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    is_staff BOOLEAN DEFAULT FALSE,
+    is_superuser BOOLEAN DEFAULT FALSE,
+    date_joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id) 
 );
