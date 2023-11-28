@@ -4,33 +4,55 @@ from .model_base import ModelBase
 
 TABLE="users"
 
-class User(ModelBase):
+class Users(ModelBase):
     def __init__(self) -> None:
         super().__init__()
         self.table=TABLE
     
     def initiate(self,
-                 emp_id:str,name:str
+        username:str,
+        password:str,
+        first_name:str,
+        last_name:str,
+        email:str,
+        date_joined:str,
+        last_login:str
     ):
-        self.emp_id=emp_id
-        self.name=name
+        self.username=username
+        self.password=password
+        self.first_name=first_name
+        self.last_name=last_name
+        self.email=email
+        self.date_joined=date_joined
+        self.last_login=last_login
 
     def add_user(self):
-        params=[self.emp_id,self.name]
+        
+        params=[self.username,
+                self.first_name,
+                self.last_name,
+                self.email,
+                self.password,
+                self.date_joined,
+                self.last_login]
         query=f"""
         INSERT INTO {self.table}
-        (emp_id,name)
+        (username,firstname,lastname,email,password,unique_salt,date_joined,last_login)
         VALUES (%s,%s)
         """
         self.insert(query=query,params=params)
     
-    def get_emp_data(self,clauses:Dict[str,Any]):
-
+    def login_user(self,username,password):
+        
+        params=[username,password]
         query=f"""
-        SELECT * FROM {self.table}
-        """    
-        if clauses:
-            query =query + " WHERE "
-            for key , val in clauses.items():
-                query=query + f"{key} = '{val}'"
-        return self.read(query,None)
+        SELECT id FROM {self.table}
+        WHERE
+        user_name = '%s
+        AND
+        password = '%s'
+        """
+        res = self.read(query,params)
+        if res:
+            return res[0]
+        return None

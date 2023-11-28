@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'TaskManagerApp.apps.TaskmanagerappConfig',
     'rest_framework',
     'corsheaders',
+    'sslserver',
 ]
 
 MIDDLEWARE = [

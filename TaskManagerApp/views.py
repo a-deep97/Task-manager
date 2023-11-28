@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.views import APIView
@@ -9,11 +10,29 @@ from TaskManagerApp.lib.task_activities_util import TaskActivitiesUtil
 
 from TaskManagerApp.lib.task_util import TaskUtil
 from TaskManagerApp.lib.user_util import UserUtil
-from .db_utils.project import Project
-from .db_utils.tasks import Tasks
 
 def projects(request):
     return render(request,template_name='index.html')
+
+def register_user(request):
+    if request.method == 'POST':
+        data=request.data
+        try:
+            user=UserUtil.create_user(**data)
+        except Exception as exc:
+            return Response({'error': f'Could not register user {str(exc)}'}, status=500)
+
+def login_user(request):
+    if request.method == 'POST':
+        data = request.data
+        username = data.get('username')
+        password = data.get('password')
+
+        user=UserUtil.login_user(username,password)
+        if user:
+            return Response(user)
+        else:
+            return Response({'error': 'Invalid credentials'}, status=401)
 
 @api_view(['GET'])
 def getProjectDetail(request):
