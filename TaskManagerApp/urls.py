@@ -6,6 +6,8 @@ from django.views.generic import TemplateView
 
 urlpatterns=[
     path('',views.projects,name='projects'),
+    path('signup',views.registerUser),
+    path('login',views.loginUser),
     path('projects',views.getProjectList),
     path('project',views.getProjectDetail),
     path('tasks',views.getTaskList),

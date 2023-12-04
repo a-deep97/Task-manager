@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt  
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -14,22 +14,26 @@ from TaskManagerApp.lib.user_util import UserUtil
 def projects(request):
     return render(request,template_name='index.html')
 
-def register_user(request):
+@api_view(['POST'])
+@csrf_exempt  
+def registerUser(request):
     if request.method == 'POST':
         data=request.data
         try:
             user=UserUtil.create_user(**data)
+            return Response(data)
         except Exception as exc:
             return Response({'error': f'Could not register user {str(exc)}'}, status=500)
 
-def login_user(request):
+@api_view(['POST'])
+@csrf_exempt
+def loginUser(request):
     if request.method == 'POST':
         data = request.data
-        username = data.get('username')
-        password = data.get('password')
-
-        user=UserUtil.login_user(username,password)
+        user=UserUtil.login_user(**data)
         if user:
+            request.session['user_id'] = user['id']
+            request.session['username'] = user['username']
             return Response(user)
         else:
             return Response({'error': 'Invalid credentials'}, status=401)

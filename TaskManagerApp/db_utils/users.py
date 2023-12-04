@@ -11,34 +11,37 @@ class Users(ModelBase):
     
     def initiate(self,
         username:str,
-        password:str,
-        first_name:str,
-        last_name:str,
+        secure_password:str,
+        unique_salt:str,
+        firstname:str,
+        lastname:str,
         email:str,
         date_joined:str,
         last_login:str
     ):
         self.username=username
-        self.password=password
-        self.first_name=first_name
-        self.last_name=last_name
+        self.secure_password=secure_password
+        self.unique_salt=unique_salt
+        self.first_name=firstname
+        self.last_name=lastname
         self.email=email
         self.date_joined=date_joined
         self.last_login=last_login
 
-    def add_user(self):
+    def create_user(self):
         
         params=[self.username,
                 self.first_name,
                 self.last_name,
                 self.email,
-                self.password,
+                self.secure_password,
+                self.unique_salt,
                 self.date_joined,
                 self.last_login]
         query=f"""
         INSERT INTO {self.table}
-        (username,firstname,lastname,email,password,unique_salt,date_joined,last_login)
-        VALUES (%s,%s)
+        (username,firstname,lastname,email,secure_password,unique_salt,date_joined,last_login)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
         """
         self.insert(query=query,params=params)
     
@@ -46,13 +49,29 @@ class Users(ModelBase):
         
         params=[username,password]
         query=f"""
-        SELECT id FROM {self.table}
+        SELECT id , username FROM {self.table}
         WHERE
-        user_name = '%s
+        username = %s
         AND
-        password = '%s'
+        secure_password = %s
         """
         res = self.read(query,params)
+        if res:
+            return {
+                'id':res[0],
+                'username':res[1]
+            }
+        return None
+    
+    def get_unique_salt(self,username):
+        
+        params=[username]
+        query=f"""
+        SELECT unique_salt FROM {self.table}
+        WHERE
+        username = %s
+        """
+        res=self.read(query,params)
         if res:
             return res[0]
         return None
