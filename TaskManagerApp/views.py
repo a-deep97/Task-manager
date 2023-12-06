@@ -38,6 +38,14 @@ def loginUser(request):
         else:
             return Response({'error': 'Invalid credentials'}, status=401)
 
+@api_view(['POST'])
+@csrf_exempt
+def logoutUser(request):
+    if request.method == 'POST':
+        request.session['user_id'] = None
+        request.session['username'] = None
+        return Response({'message': 'Successfully logged out'})
+
 @api_view(['GET'])
 def getProjectDetail(request):
     key=request.GET.get('key')

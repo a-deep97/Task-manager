@@ -1,8 +1,9 @@
 /* Styling for the top navbar */
-.top-navbar {
+.navbar {
     background-color: #007bff; /* Eye-catching blue background for the navbar */
     color: #fff; /* White text color */
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -14,11 +15,14 @@
   /* Styling for the navbar links */
   .navbar-links {
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   /* Styling for the title */
-  #title {
+  #navbar-title {
     font-size: 24px;
     font-weight: bold;
     margin-left: 10px;
