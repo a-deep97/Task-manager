@@ -6,15 +6,23 @@ import '../../css/logout.css';
 function LogOut(props){
 
     const navigate = useNavigate();
-
+    const [LoggedOut, setLoggedOut] = useState(false);
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
     function handleLogout(e){
         e.preventDefault();
-//        const csrfToken = getCookie('csrftoken');
+        if(LoggedOut === true){
+            return
+        }
+        const csrfToken = getCookie('csrftoken');
         fetch('http://127.0.0.1:8000/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-  //                  'X-CSRFToken': csrfToken,
+                    'X-CSRFToken': csrfToken,
                 },
                 credentials: 'include', // Include credentials (cookies) in the request
         })
@@ -30,12 +38,14 @@ function LogOut(props){
       })
       .catch((error) => {
         console.error('There was a problem with the logout operation:', error);
-        window.alert("There's a problem with the logout :( \n\n "+ error.message)
+      })
+      .finally(()=>{
+        window.location.reload();
       });
 
     };
     return(
-        <button className='logout-button' onClick={handleLogout}>Logout</button>
+        <button className='logout-button' onClick={handleLogout} disabled={LoggedOut}>Logout</button>
     )
 }
 export default LogOut;

@@ -34,6 +34,8 @@ def loginUser(request):
         if user:
             request.session['user_id'] = user['id']
             request.session['username'] = user['username']
+            request.session['is_authenticated'] = True
+            request.session.save()
             return Response(user)
         else:
             return Response({'error': 'Invalid credentials'}, status=401)
@@ -44,10 +46,16 @@ def logoutUser(request):
     if request.method == 'POST':
         request.session['user_id'] = None
         request.session['username'] = None
-        return Response({'message': 'Successfully logged out'})
+        request.session['is_authenticated'] = False
+        request.session.flush()
+        response = Response({'message': 'Successfully logged out'})
+        response.set_cookie('sessionid','')
+    return Response({'error': 'Invalid request method'}, status=400)
 
 @api_view(['GET'])
 def getProjectDetail(request):
+    if not request.session.get('is_authenticated'):
+        return Response({'error': 'Unauthorized access'}, status=401)
     key=request.GET.get('key')
     param=request.GET.get('param')
     if not key and param:
@@ -57,6 +65,8 @@ def getProjectDetail(request):
 
 @api_view(['GET'])
 def getProjectList(request):
+    if not request.session.get('is_authenticated'):
+        return Response({'error': 'Unauthorized access'}, status=401)
     key = request.GET.get('key')
     param = request.GET.get('param')
     key = None if key=='null' else key
@@ -67,6 +77,8 @@ def getProjectList(request):
 
 @api_view(['GET'])
 def getTaskDetail(request):
+    if not request.session.get('is_authenticated'):
+        return Response({'error': 'Unauthorized access'}, status=401)
     key = request.GET.get('key')
     param = request.GET.get('param')
     data=TaskUtil.get_task_data(key=key,param=param)
@@ -74,6 +86,8 @@ def getTaskDetail(request):
 
 @api_view(['GET'])
 def getTaskList(request):
+    if not request.session.get('is_authenticated'):
+        return Response({'error': 'Unauthorized access'}, status=401)
     key = request.GET.get('key')
     param = request.GET.get('param')
     key = None if key=='null' else key
@@ -83,6 +97,9 @@ def getTaskList(request):
 
 @api_view(['GET','POST'])
 def createTask(request):
+    if not request.session.get('is_authenticated'):
+        return Response({'error': 'Unauthorized access'}, status=401)
+    
     if request.method == 'POST':
         data = request.data
         try:
@@ -96,6 +113,8 @@ def createTask(request):
 
 @api_view(['GET','POST'])
 def createProject(request):
+    if not request.session.get('is_authenticated'):
+        return Response({'error': 'Unauthorized access'}, status=401)
     if request.method == 'POST':
         data = request.data
         try:  
@@ -106,12 +125,6 @@ def createProject(request):
         return Response(res)
     
     return Response({'error': 'Invalid request method'}, status=400)
-
-@api_view(['GET'])
-def getUserTasks(request):
-    name="aman"
-    res=UserUtil().get_user_tasks(name=name)
-    return Response(res)
 
 @api_view(['GET'])
 def getSuggestions(request):

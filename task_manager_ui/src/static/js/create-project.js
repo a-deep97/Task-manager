@@ -24,6 +24,7 @@ function CreateProject() {
     function postTaskForm(formData){
         fetch('http://127.0.0.1:8000/project/create', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
             },

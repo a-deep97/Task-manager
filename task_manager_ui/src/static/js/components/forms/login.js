@@ -38,7 +38,8 @@ function Login(props){
         })
         .then((data) => {
             console.log('Response from server:', data);
-            navigate('/tasks/')
+            props.setIsAuthenticated(true);
+            navigate('/tasks')
       })
       .catch((error) => {
         console.error('There was a problem with the login operation:', error);

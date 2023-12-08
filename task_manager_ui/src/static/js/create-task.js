@@ -23,6 +23,7 @@ function CreateTask() {
     function postTaskForm(formData){
         fetch('http://127.0.0.1:8000/task/create', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
             },

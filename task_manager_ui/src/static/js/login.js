@@ -7,14 +7,15 @@ import Login from './components/forms/login';
 import '../css/login.css';
 import '../css/common.css';
 
-const LoginPage = () => {
+function LoginPage(props){
 
+  
   return (
     <div id='login-page' className='main-view'>
         <Navbar/>
         <div className="login-container">
             <h2> Login</h2>
-            <Login/>
+            <Login setIsAuthenticated = {props.setIsAuthenticated} />
         </div>
     </div>
   );

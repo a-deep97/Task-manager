@@ -4,7 +4,7 @@ import MainContainer from './components/main-container';
 import Footer from './components/footer';
 
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation , useNavigate} from 'react-router-dom';
 
 /**
  * This component represents task page
@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 
 function Task() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [taskdetail, setTaskDetail] = useState(null);
     const {key=null , param=null} = location.state || {};
     const componentToRender= "task"
@@ -21,9 +22,17 @@ function Task() {
     }, [key, param]);
 
     const taskData = () => {
-        fetch(`http://127.0.0.1:8000/task?key=${key}&param=${param}`)
+        fetch(`http://127.0.0.1:8000/task?key=${key}&param=${param}`,{
+            method:'GET',
+            credentials: 'include',
+          })
         .then((response) => {
-            return response.json();
+            if(response.ok){
+                return response.json();
+              }
+              else{
+                navigate('/login')
+              }
         })
         .then((data) => {
             setTaskDetail(data);

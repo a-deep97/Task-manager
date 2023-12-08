@@ -5,7 +5,7 @@ import MainContainer from './components/main-container';
 import Footer from './components/footer';
 
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 /**
  * This component represents project page
@@ -13,6 +13,7 @@ import { useLocation } from 'react-router-dom';
 
 function Project() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [projectdetail, setProjectDetail] = useState(null);
     const {key=null , param=null} = location.state || {};
     const componentToRender = "project"
@@ -22,9 +23,17 @@ function Project() {
     }, [key, param]);
 
     const projectData = () => {
-    fetch(`http://127.0.0.1:8000/project?key=${key}&param=${param}`)
+    fetch(`http://127.0.0.1:8000/project?key=${key}&param=${param}`,{
+      method:'GET',
+      credentials: 'include',
+    })
       .then((response) => {
-        return response.json();
+        if(response.ok){
+          return response.json();
+        }
+        else{
+          navigate('/login')
+        }
       })
       .then((data) => {
         setProjectDetail(data);

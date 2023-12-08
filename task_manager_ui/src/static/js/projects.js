@@ -5,9 +5,10 @@ import MainContainer from './components/main-container';
 import Footer from './components/footer';
 
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation ,useNavigate} from 'react-router-dom';
 
 function Projects() {
+    const navigate = useNavigate();
     const [projectlist, setProjectList] = useState(null);
     const componentToRender = "projects";
     const location = useLocation();
@@ -18,9 +19,17 @@ function Projects() {
 
     // method to fetch project list
     const projectList = () => {
-        fetch(`http://127.0.0.1:8000/projects?key=${key}&param=${param}`)
+        fetch(`http://127.0.0.1:8000/projects?key=${key}&param=${param}`,{
+            method:'GET',
+            credentials: 'include',
+          })
         .then(response => {
-            return response.json();
+            if(response.ok){
+                return response.json();
+              }
+              else{
+                navigate('/login')
+              }
         })
         .then(data => {
             setProjectList(data);

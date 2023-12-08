@@ -34,6 +34,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_AGE = 1209600
+SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = False  # Set to True if using HTTPS
+SESSION_COOKIE_HTTPONLY = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,6 +68,24 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TaskManager.urls'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'logfile.log',
+        },
+    },
+    'loggers': {
+        __name__: {
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+    },
+}
 
 TEMPLATES = [
     {
@@ -150,4 +175,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL=False
 CORS_ORIGIN_WHITELIST=[
     'http://localhost:3000'    #   allowing frontend source to fetch
+]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
 ]
