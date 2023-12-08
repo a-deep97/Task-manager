@@ -20,7 +20,7 @@
   .apply-button {
     width: 100%;
     margin: 0px 10px;
-    background-color: #007bff;
+    background-color: #45a049;
     color: #fff;
     border: none;
     border-top-right-radius: 10px;
@@ -33,7 +33,7 @@
   
   /* Styling for the search button on hover */
   .search-button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
   }
   
   /* Styling for search icon */

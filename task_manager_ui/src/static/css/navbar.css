@@ -1,6 +1,6 @@
 /* Styling for the top navbar */
 .navbar {
-    background-color: #007bff; /* Eye-catching blue background for the navbar */
+    background-color: #45a049; /* Eye-catching blue background for the navbar */
     color: #fff; /* White text color */
     display: flex;
     flex-direction: row;
@@ -26,20 +26,8 @@
     font-size: 24px;
     font-weight: bold;
     margin-left: 10px;
-    background-color: #007bff; /* Blue background color for the title */
+    background-color: #45a049; /* Blue background color for the title */
     padding: 5px 10px; /* Add padding to make the background more prominent */
     border-radius: 5px; /* Add rounded corners */
-  }
-  
-  /* Keyframes for the slideInDown animation */
-  @keyframes slideInDown {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
   }
   

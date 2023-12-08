@@ -35,7 +35,7 @@
   
   /* Styling for panel buttons */
   .panel-btn {
-    background-color: #007bff; /* Blue color for buttons */
+    background-color: #45a049; /* Blue color for buttons */
     color: #fff;
     margin: 10px;
     border: none;
@@ -54,6 +54,6 @@
   
   /* Styling for side panel links on hover */
   .side-panel-links:hover {
-    color: #007bff; /* Blue color on hover */
+    color: #45a049; /* Blue color on hover */
   }
   

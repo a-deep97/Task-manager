@@ -85,7 +85,7 @@
 
 /* Styling for activity header */
 .activity-header {
-  background-color: #007bff;
+  background-color: #45a049;
   color: #fff;
   font-weight: bold;
   padding: 10px;
@@ -120,13 +120,13 @@
 }
 
 .form-field:focus {
-  border-color: #007BFF; /* Change border color when focused */
+  border-color: #45a049; /* Change border color when focused */
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow when focused */
 }
 
   /* Styling for the Save button */
   .save-btn {
-    background-color: #007bff;
+    background-color: #45a049;
     color: #fff;
     border: none;
     border-top-right-radius: 4px;
