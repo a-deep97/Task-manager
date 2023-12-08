@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { Form, useNavigate } from 'react-router-dom';
 import CustomButton from "./utilities/button"; 
-import '../../css/side-panel.css'
+import '../../css/side-panel.css';
+import '../../css/utilities/scrollbar.css';
 
 /*
     This component represents the left side panel for main container

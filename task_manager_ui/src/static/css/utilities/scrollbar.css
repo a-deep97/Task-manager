@@ -1,0 +1,48 @@
+/* Customize the main scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track (the area on the sides of the thumb) */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle (the draggable scrolling element) */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Button at the top and bottom of the scrollbar */
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+  /* Corner between vertical and horizontal scrollbars */
+  ::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+  }
+  
+  /* Resizer (for resizing the horizontal scrollbar) */
+  ::-webkit-resizer {
+    background: #f1f1f1;
+  }
+  
+  /* Example: Hide scrollbar on the body but show on specific elements */
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  
+  /* Apply scrollbar style to a specific container */
+  .container-with-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+  

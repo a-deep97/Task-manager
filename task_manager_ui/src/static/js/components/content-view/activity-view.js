@@ -2,6 +2,7 @@
 import React, { useState ,useEffect } from 'react';
 import CreateCommentForm from '../forms/create-comment-form';
 import '../../../css/activity-view.css'
+import '../../../css/utilities/scrollbar.css';
 
 function ActivityEntity(props){
 
