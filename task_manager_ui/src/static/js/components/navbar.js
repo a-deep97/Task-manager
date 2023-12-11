@@ -1,6 +1,6 @@
 import React from 'react';
 import LogOut from './logout';
-
+import '../../css/navbar.css';
 function Navbar() {
     return (
         <div className="navbar">

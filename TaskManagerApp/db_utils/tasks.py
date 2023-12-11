@@ -14,25 +14,32 @@ class Tasks(ModelBase):
     def initiate(self,
                 title:str,
                 project:int,
+                author:int,
+                creation_date,
+                creation_time,
                 owner:str="",
                 description:str="",
                 status:Status=Status.Unknown.name,
-                target:Any=""):
+                target:Any="",
+                ):
         self.title=title
         self.project=project
         self.owner=owner
         self.description=description
         self.status=status
         self.target=target
+        self.author=author
+        self.creation_date=creation_date
+        self.creation_time=creation_time
     
     def create_task(self):
-        params=[self.title,self.project,self.owner,self.description,self.status,self.target]
+        params=[self.title,self.project,self.owner,self.description,self.status,self.target,self.author,self.creation_date,self.creation_time]
         query=f"""
             INSERT INTO {self.table}
-            (title,project,owner,description,status,target)
-            VALUES (%s,%s,%s,%s,%s,%s)
+            (title,project,owner,description,status,target,author,creation_date,creation_time)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
         """
-        self.insert(query=query,params=params)
+        return self.insert(query=query,params=params)
          
     def query_tasks(self,key:str, param:str):
         query=f"""

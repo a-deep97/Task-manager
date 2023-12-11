@@ -33,6 +33,7 @@ function CreateCommentForm(props){
   function onCommentSubmit(newComment){
     fetch('http://127.0.0.1:8000/task/activities/create', {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json', // Specify the content type as JSON
         },

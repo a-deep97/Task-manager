@@ -102,6 +102,7 @@ def createTask(request):
     
     if request.method == 'POST':
         data = request.data
+        data["author"]=request.session['user_id']
         try:
             res = TaskUtil.create_task(**data)
         except Exception as exc:
@@ -188,11 +189,12 @@ def update_target(request):
 @api_view(['GET','POST'])
 def createComment(request):
     if request.method == 'POST':
-        data=request.data 
+        data=request.data
+        data["author"]=request.session["user_id"] 
         try:
             res=TaskActivitiesUtil.create_comment(**data)
         except Exception as exc:
-            return Response({'error': f'Could not update target {str(exc)}'}, status=500)
+            return Response({'error': f'Could not create comment {str(exc)}'}, status=500)
 
         return Response(res)
     
@@ -202,7 +204,7 @@ def createComment(request):
 def getActivities(request):
     task_id=request.GET.get("task_id")
     try:
-        res = TaskActivitiesUtil.get_activities(task_id)
+        res = TaskActivitiesUtil.get_activities(int(task_id))
     except Exception as exc:
         return Response({'error': f'Could not fetch activities {str(exc)}'}, status=500)
     return Response(res)

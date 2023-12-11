@@ -21,6 +21,11 @@ function CreateTask() {
         postTaskForm(data);
     }
     function postTaskForm(formData){
+        const now = new Date();
+        const date = now.toISOString().slice(0,10);
+        const time = now.toISOString().slice(11,19);
+        formData["creation_date"]=date
+        formData["creation_time"]=time
         fetch('http://127.0.0.1:8000/task/create', {
             method: 'POST',
             credentials: 'include',

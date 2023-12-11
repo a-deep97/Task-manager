@@ -3,6 +3,8 @@ from typing import Dict
 from TaskManagerApp.db_utils.tasks import Tasks
 from TaskManagerApp.lib.constants.status import Status
 from TaskManagerApp.lib.project_util import ProjectUtil
+from TaskManagerApp.lib.task_activities_util import TaskActivitiesUtil
+from TaskManagerApp.lib.user_util import UserUtil
 
 TABLE="tasks"
 TASK_ID_KEY="id"
@@ -29,9 +31,21 @@ class TaskUtil:
             "description":kwargs.get("description"),
             "status":kwargs.get("status",Status.Unknown.name),
             "target":kwargs.get("target"),
+            "author":kwargs.get("author"),
+            "creation_date":kwargs.get("creation_date"),
+            "creation_time":kwargs.get("creation_time"),
         }
         task.initiate(**params)
-        task.create_task()
+        task_id=task.create_task()
+        author=UserUtil.get_username_from_id(kwargs.get("author"))
+        activity_params={
+            "task_id":task_id,
+            "author":"author",
+            "activity":f"{author} created this task",
+            "activity_date":params["creation_date"],
+            "activity_time":params["creation_time"],
+        }
+        activity=TaskActivitiesUtil.create_activity(**activity_params)# TODO: roll back task if activity not created
         return params
 
     @classmethod

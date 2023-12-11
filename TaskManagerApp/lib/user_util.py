@@ -37,3 +37,7 @@ class UserUtil:
         password_hash=bcrypt.hashpw(password.encode('utf-8'),unique_salt.encode('utf-8'))
         user=Users().login_user(username,password_hash.decode('utf-8'))
         return user
+
+    @classmethod
+    def get_username_from_id(cls,user_id):
+        return Users().get_username(**{"id":user_id})

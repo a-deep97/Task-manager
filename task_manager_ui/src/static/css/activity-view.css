@@ -12,6 +12,10 @@
     border-radius: 5px;
   }
   
+  .activity-author >p{
+    font-size: small;
+    font-weight: bold;
+  }
   .activity-message{
     font-size: small;
     width: 100%;

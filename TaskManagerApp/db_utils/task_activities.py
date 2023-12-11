@@ -11,9 +11,9 @@ class TaskActivities(ModelBase):
 
     def initiate(self,
                 task_id:int,
-                comment:str="",
-                activity:str="",
-                author:str="",
+                author:str,
+                comment:str=None,
+                activity:str=None,
                 activity_date:str="",
                 activity_time:str="",
         ):
@@ -35,6 +35,16 @@ class TaskActivities(ModelBase):
         self.insert(query=query,params=params)
         return params
     
+    def create_activity(self):
+        params=[self.task_id,self.activity,self.activity_date,self.activity_time]
+        query=f"""
+            INSERT INTO {self.table}
+            (task_id,activity,activity_date,activity_time)
+            VALUES (%s,%s,%s,%s)
+        """
+        self.insert(query=query,params=params)
+        return params
+    
     def get_top_order(self,task_id):
 
         params=[task_id]
@@ -48,7 +58,6 @@ class TaskActivities(ModelBase):
         return self.read(query=query,params=params)
 
     def query_activities(self,task_id):
-
         params=[task_id]
         query=f"""
             SELECT * FROM {self.table}

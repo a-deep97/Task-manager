@@ -27,7 +27,9 @@ class ModelBase(object):
         last_inserted_id=None
         with connection.cursor() as cursor:
             cursor.execute(query,params)
-    
+            last_inserted_id = cursor.lastrowid
+            return last_inserted_id
+        
     def update(self,query:str,params:List):
         with connection.cursor() as cursor:
             cursor.execute(query,params)

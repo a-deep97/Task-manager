@@ -75,3 +75,15 @@ class Users(ModelBase):
         if res:
             return res[0]
         return None
+
+    def get_username(self,**kwargs):
+        params=[]
+        query=f"""
+        SELECT username from {self.table}
+        WHERE
+        """
+        for key, val in kwargs.items():
+            query+=f"{key} = %s"
+            params.append(val)
+        username=self.read(query,params)
+        return username[0]
