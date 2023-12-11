@@ -85,14 +85,11 @@ def getTaskDetail(request):
     return Response(data)
 
 @api_view(['GET'])
-def getTaskList(request):
+def getMyTaskList(request):
     if not request.session.get('is_authenticated'):
         return Response({'error': 'Unauthorized access'}, status=401)
-    key = request.GET.get('key')
-    param = request.GET.get('param')
-    key = None if key=='null' else key
-    param = None if param=='null' else param
-    data = TaskUtil.get_tasks(key=key,param=param)
+    user=request.session['user_id']
+    data = TaskUtil.get_tasks(**{"owner":user})
     return Response(data)
 
 @api_view(['GET','POST'])

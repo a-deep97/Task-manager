@@ -12,9 +12,6 @@ function ActivityEntity(props){
     debugger;
     return (
         <div className="activity-entity">
-            <div className='activity-author'>
-                {props.author ? (<p>{props.author}</p>) : (<p></p>)}
-            </div>
             <div className="activity-message">
                 {props.comment ? (<div><p>{props.author}</p> <p>{props.comment}</p></div>) : (<p>{props.activity}</p>)}
             </div>
@@ -43,6 +40,7 @@ function ActivityList(props){
             <ActivityEntity
             comment={activity.comment}
             activity={activity.activity}
+            author={activity.author}
             date={activity.activity_date}
             time={activity.activity_time}
             //person={activity.person}
@@ -58,7 +56,6 @@ function ActivityView(props){
     const [activities, setActivities] = useState([]);
     function get_activities(task_id){
         console.log("fetching task activities...")
-        debugger;
         fetch(`http://127.0.0.1:8000/task/activities/list?task_id=${task_id}`)
         .then((response) => {
             if (!response.ok) {

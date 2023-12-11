@@ -49,10 +49,10 @@ class TaskUtil:
         return params
 
     @classmethod
-    def get_tasks(cls,key:str=None,param:str=None):
+    def get_tasks(cls,**params):
         
         data=[]
-        res=Tasks().query_tasks(key,param)
+        res=Tasks().query_tasks(**params)
         for each in res:
             project=None #ProjectUtil.get_Name_from_ID(int(each[2]))
             entity={

@@ -41,18 +41,17 @@ class Tasks(ModelBase):
         """
         return self.insert(query=query,params=params)
          
-    def query_tasks(self,key:str, param:str):
+    def query_tasks(self,**conditions):
         query=f"""
             SELECT * FROM {self.table}
         """
-        if key and param:
-            query+=f"\n WHERE {key} = "
-            if param.isdigit():
-                param=int(param)
-                query+=f"{param}"
-            else:
-                query+=f"'{param}'"
-        return self.read_all(query,None)
+        params=[]
+        if conditions:
+            query+=" WHERE "
+            for key,val in conditions.items():
+                query+=f"\n {key} = %s"
+                params.append(val)
+        return self.read_all(query,params)
 
     def query_task_data(self,key:str,param:str):
         query=f"""

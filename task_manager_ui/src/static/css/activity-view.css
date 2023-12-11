@@ -12,19 +12,18 @@
     border-radius: 5px;
   }
   
-  .activity-author >p{
-    font-size: small;
-    font-weight: bold;
-  }
   .activity-message{
     font-size: small;
     width: 100%;
     height: auto;
+    margin: 0px 0px;
    }
   .activity-message > p{
     word-wrap: break-word;
     white-space: normal;
     text-overflow: ellipsis;
+    padding: 0px 0px;
+    margin: 0px 0px;
    }
 
   .activity-options {

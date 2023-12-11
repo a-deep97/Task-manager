@@ -26,7 +26,7 @@ function Tasks(props) {
     }, []);
 
   const taskList = () => {
-    fetch(`http://127.0.0.1:8000/tasks?key=${key}&param=${param}`,{
+    fetch('http://127.0.0.1:8000/my_tasks',{
       method:'GET',
       credentials: 'include',
     })

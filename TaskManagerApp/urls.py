@@ -11,7 +11,7 @@ urlpatterns=[
     path('logout',views.logoutUser),
     path('projects',views.getProjectList),
     path('project',views.getProjectDetail),
-    path('tasks',views.getTaskList),
+    path('my_tasks',views.getMyTaskList),
     path('task',views.getTaskDetail),
     path('task/create',views.createTask),
     path('project/create',views.createProject),
